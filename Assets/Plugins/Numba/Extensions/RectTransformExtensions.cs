@@ -12,8 +12,6 @@ namespace Extensions
 
         public static void SetSizeDeltaY(this RectTransform rectTransform, float y) => rectTransform.sizeDelta = rectTransform.sizeDelta.WithY(y);
 
-        public static void SetSizeDeltaXY(this RectTransform rectTransform, float x, float y) => rectTransform.sizeDelta = new Vector2(x, y);
-
         public static void SetAnchorMinX(this RectTransform rectTransform, float x) => rectTransform.anchorMin = rectTransform.anchorMin.WithX(x);
 
         public static void SetAnchorMinY(this RectTransform rectTransform, float y) => rectTransform.anchorMin = rectTransform.anchorMin.WithY(y);
@@ -56,22 +54,20 @@ namespace Extensions
             rectTransform.SetAnchoredPositionY(rectTransform.anchoredPosition.y - rectTransform.sizeDelta.y * deltaPercent);
         }
 
-        public static void SetPivotOnly(this RectTransform rectTransform, Vector2 pivot)
+        public static void SetPivotOnly(this RectTransform rectTransform, float x, float y)
         {
-            SetPivotOnlyX(rectTransform, pivot.x);
-            SetPivotOnlyY(rectTransform, pivot.y);
+            SetPivotOnlyX(rectTransform, x);
+            SetPivotOnlyY(rectTransform, y);
         }
+
+        public static void SetPivotOnly(this RectTransform rectTransform, Vector2 pivot) => SetPivotOnly(rectTransform, pivot.x, pivot.y);
 
         public static Vector2 GetSize(this RectTransform rectTransform)
         {
             if (rectTransform.GetComponent<Canvas>() != null)
                 return rectTransform.sizeDelta;
 
-            return Vector2.Scale(GetSize(rectTransform.parent.AsRect()), rectTransform.anchorMax - rectTransform.anchorMin) + rectTransform.sizeDelta;
+            return Vector2.Scale(GetSize(rectTransform.parent as RectTransform), rectTransform.anchorMax - rectTransform.anchorMin) + rectTransform.sizeDelta;
         }
-
-        public static void SetAsPreviousSibling(this RectTransform rectTransform) => rectTransform.SetSiblingIndex(rectTransform.GetSiblingIndex() - 1);
-
-        public static void SetAsNextSibling(this RectTransform rectTransform) => rectTransform.SetSiblingIndex(rectTransform.GetSiblingIndex() + 1);
     }
 }

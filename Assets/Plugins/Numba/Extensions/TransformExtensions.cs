@@ -68,7 +68,9 @@ namespace Extensions
 
         public static void SetLocalScaleYZ(this Transform transform, float y, float z) => transform.localScale = transform.localScale.WithYZ(y, z);
 
-        public static RectTransform AsRect(this Transform transform) => transform as RectTransform;
+        public static void SetAsPreviousSibling(this Transform transform) => transform.SetSiblingIndex(transform.GetSiblingIndex() - 1);
+
+        public static void SetAsNextSibling(this Transform transform) => transform.SetSiblingIndex(transform.GetSiblingIndex() + 1);
 
         public static List<Transform> GetChilds(this Transform transform) => Enumerable.Range(0, transform.childCount).Select(index => transform.GetChild(index)).ToList();
 

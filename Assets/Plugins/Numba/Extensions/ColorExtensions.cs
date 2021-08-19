@@ -8,9 +8,9 @@ namespace Extensions
 {
     public static class ColorExtensions
     {
-        public static Color With(this Color color, int axis, float value)
+        public static Color With(this Color color, int channel, float value)
         {
-            color[axis] = value;
+            color[channel] = value;
             return color;
         }
 
@@ -22,10 +22,10 @@ namespace Extensions
 
         public static Color WithA(this Color color, float a) => With(color, 3, a);
 
-        public static Color With(this Color color, int axis1, float value1, int axis2, float value2)
+        public static Color With(this Color color, int channel1, float value1, int channel2, float value2)
         {
-            color[axis1] = value1;
-            color[axis2] = value2;
+            color[channel1] = value1;
+            color[channel2] = value2;
 
             return color;
         }
@@ -42,11 +42,11 @@ namespace Extensions
 
         public static Color WithBA(this Color color, float b, float a) => With(color, 2, b, 3, a);
 
-        public static Color With(this Color color, int axis1, float value1, int axis2, float value2, int axis3, float value3)
+        public static Color With(this Color color, int channel1, float value1, int channel2, float value2, int channel3, float value3)
         {
-            color[axis1] = value1;
-            color[axis2] = value2;
-            color[axis3] = value3;
+            color[channel1] = value1;
+            color[channel2] = value2;
+            color[channel3] = value3;
 
             return color;
         }
