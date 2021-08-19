@@ -34,7 +34,7 @@ namespace Extensions
 
         public static Vector3 WithYZ(this Vector3 vector, float y, float z) => With(vector, 1, y, 2, z);
 
-        public static Vector3 Get(this Vector3 vector, int axis1, int axis2) => new Vector2(vector[axis1], vector[axis2]);
+        public static Vector2 Get(this Vector3 vector, int axis1, int axis2) => new Vector2(vector[axis1], vector[axis2]);
 
         public static Vector2 GetXY(this Vector3 vector) => Get(vector, 0, 1);
 
