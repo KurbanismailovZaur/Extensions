@@ -20,6 +20,14 @@ namespace Extensions
 
         public static void SetAnchorMaxY(this RectTransform rectTransform, float y) => rectTransform.anchorMax = rectTransform.anchorMax.WithY(y);
 
+        public static void SetOffsetMinX(this RectTransform rectTransform, float x) => rectTransform.offsetMin = rectTransform.offsetMin.WithX(x);
+
+        public static void SetOffsetMinY(this RectTransform rectTransform, float y) => rectTransform.offsetMin = rectTransform.offsetMin.WithY(y);
+
+        public static void SetOffsetMaxX(this RectTransform rectTransform, float x) => rectTransform.offsetMax = rectTransform.offsetMax.WithX(x);
+
+        public static void SetOffsetMaxY(this RectTransform rectTransform, float y) => rectTransform.offsetMax = rectTransform.offsetMax.WithY(y);
+
         public static void SetAnchoredPositionX(this RectTransform rectTransform, float x) => rectTransform.anchoredPosition = rectTransform.anchoredPosition.WithX(x);
 
         public static void SetAnchoredPositionY(this RectTransform rectTransform, float y) => rectTransform.anchoredPosition = rectTransform.anchoredPosition.WithY(y);
@@ -54,13 +62,13 @@ namespace Extensions
             rectTransform.SetAnchoredPositionY(rectTransform.anchoredPosition.y - rectTransform.sizeDelta.y * deltaPercent);
         }
 
+        public static void SetPivotOnly(this RectTransform rectTransform, Vector2 pivot) => SetPivotOnly(rectTransform, pivot.x, pivot.y);
+
         public static void SetPivotOnly(this RectTransform rectTransform, float x, float y)
         {
             SetPivotOnlyX(rectTransform, x);
             SetPivotOnlyY(rectTransform, y);
         }
-
-        public static void SetPivotOnly(this RectTransform rectTransform, Vector2 pivot) => SetPivotOnly(rectTransform, pivot.x, pivot.y);
 
         public static Vector2 GetSize(this RectTransform rectTransform)
         {

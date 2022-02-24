@@ -29,5 +29,10 @@ namespace Extensions
         public static float MaxComponent(this Vector2 vector) => Mathf.Max(vector.x, vector.y);
 
         public static float MinComponent(this Vector2 vector) => Mathf.Min(vector.x, vector.y);
+
+        public static Vector2 Remap(this Vector2 vector, float min1, float max1, float min2, float max2)
+        {
+            return new Vector2(vector.x.Remap(min1, max1, min2, max2), vector.y.Remap(min1, max1, min2, max2));
+        }
     }
 }
