@@ -1,6 +1,14 @@
 # Extensions 
 Extensions - это методы расширения многих типов данных в Unity, что существенно упрощает решение повседневных задач при создании игр.
 
+> В некоторых случаях в окончании названий методов в этой документации будут символы `XX`, `XXX` или `XXXX`, это означает, что вместо них можно подставлять любую комбинацию [X, Y, Z, W] (в случае векторов) или [R, G, B, A] (в случае цветов).
+
+Пример:
+```
+color.WithG(1f); // изменяет цвет канала G на 1f и возвращает результат как копию.
+color.WithRB(0.5f, 1f) // изменяет цвет канала R на 0.5f и B на 1f и возвращает результат как копию.
+```
+
 ## Float и Double
 `Remap` - переназначает число из начального диапазона в число конечного диапазона.
 ```
@@ -11,26 +19,18 @@ var remapedX = x.Remap(0f, 1f, 4f, 6f);
 Переменная `RemapedX` будет равна `5f`.
 
 ## Color и Color32
-`With` - заменяет значения в указанных каналах цвета и возвращает результат как копию. Имеет 3 перегрузки.
+`With` и `WithXXX` - заменяет значения в указанных каналах цвета и возвращает результат как копию. Имеет 3 перегрузки.
 ```
-var green = Color.black.With(1, 1f);
-var pink = Color.black.With(0, 1f, 2, 1f);
-var gray = Color.black.With(0, 0.5f, 1, 0.5f, 2, 0.5f);
+var gray = Color.black.With(0, 0.5f, 1, 0.75f, 2, 1f); // R = 0.5f, G = 0.75f, B = 1f.
 
-```
-
-`WithX`, `WithXX` и `WithXXX` - заменяют значения в выбранных каналах цвета и возвращает результат как копию. Вместо X необходимо подставлять маркер канала (R, G, B или A).
-```
 var green = Color.black.WithG(1f);
 var pink = Color.black.WithRB(1f, 1f);
 var yellow = Color.black.WithRGA(1f, 1f, 0f); // A - альфа канал цвета
 ```
 
 ## Graphic
-`SetColorX`, `SetColorXX` и `SetColorXXX` - устанавливает значение в выбранные каналы цвета свойства Graphic.color.
+`SetColorXXX` - устанавливает значение в выбранные каналы цвета свойства Graphic.color.
 ```
-var image = GetComponent<Image>();
-
 image.SetColorR(1f);
 image.SetColorGB(1f, 1f);
 image.SetColorRBA(0f, 0f, 0f);
@@ -120,15 +120,11 @@ var result = x.EqualsToAny(y, z);
 ```
 
 ## Quaternion
-`With` - заменяет значения в указанных осях кватерниона и возвращает результат как копию. Имеет 3 перегрузки.
-```
-transform.rotation.With(0, 8f);
-transform.rotation.With(1, 32f, 3, -16f);
-transform.rotation.With(0, 4f, 2, 8f, 3, -32);
-```
+`With` и `WithXXX` - заменяет значения в указанных осях кватерниона и возвращает результат как копию. Имеет 3 перегрузки. Работает напрямую со значениями `X`, `Y`, `Z`, `W` кватерниона (не Эйлеровы углы).
 
-`WithX`, `WithXX` и `WithXXX` - заменяют значения в выбранных осях кватерниона и возвращает результат как копию. Вместо X необходимо подставлять маркер оси (X, Y, Z или W).
 ```
+transform.rotation.With(0, 4f, 2, 8f, 3, -32);
+
 transform.rotation.WithX(8f);
 transform.rotation.WithYW(32f, -16f);
 transform.rotation.WithXZW(4f, 8f, -32);
@@ -161,6 +157,10 @@ transform.rotation.WithXZW(4f, 8f, -32);
 
 `WithYMax` - устанавливает максимальную позициб Y прямоугольника.
 
+Пример:
+```
+rect = rect.WithSize(Vector2.one).WithX(4f);
+```
 
 ## RectTransform
 `SetSizeDeltaX` и `SetSizeDeltaY` - устанавливает одно из значений свойства `RectTransform.sizeDelta` в указанное значение.
@@ -187,7 +187,7 @@ rectTransform.SetAnchoredPositionX(100f);
 rectTransform.SetAnchoredPositionY(100f);
 ```
 
-`SetAnchoredPosition3DX` и `SetAnchoredPosition3DXX` - устанавливает выбранное значение свойства `RectTransform.anchoredPosition3D` в указанное значение. Вместо X надо подставлять X, Y или Z.
+`SetAnchoredPosition3DX` и `SetAnchoredPosition3DXX` - устанавливает выбранное значение свойства `RectTransform.anchoredPosition3D` в указанное значение.
 ```
 rectTransform.SetAnchoredPosition3DX(50f);
 rectTransform.SetAnchoredPosition3DZ(0f);
@@ -232,31 +232,31 @@ var transforms = SceneManagerExtensions.FindObjectsOfTypeInOpenScenes<Transform>
 ```
 
 ## Transform
-`SetPositionX` и `SetPositionXX` - устанавливают глобальную позицию объекта по выбранной оси. Вместо X надо подставлять X, Y или Z.
+`SetPositionX` и `SetPositionXX` - устанавливают глобальную позицию объекта по выбранной оси.
 ```
 transform.SetPositionX(1f);
 transform.SetPositionYZ(2f, 3f);
 ```
 
-`SetLocalPositionX` и `SetLocalPositionXX` - устанавливают локальную позицию объекта по выбранной оси. Вместо X надо подставлять X, Y или Z.
+`SetLocalPositionX` и `SetLocalPositionXX` - устанавливают локальную позицию объекта по выбранной оси.
 ```
 transform.SetLocalPositionX(1f);
 transform.SetLocalPPositionYZ(2f, 3f);
 ```
 
-`SetEulerAnglesX` и `SetEulerAnglesXX` - устанавливают глобальный поворот объекта по выбранной оси. Вместо X надо подставлять X, Y или Z.
+`SetEulerAnglesX` и `SetEulerAnglesXX` - устанавливают глобальный поворот объекта по выбранной оси.
 ```
 transform.SetEulerAnglesX(45f);
 transform.SetEulerAnglesYZ(0f, 90f);
 ```
 
-`SetLocalEulerAnglesX` и `SetLocalEulerAnglesXX` - устанавливают локальный поворот объекта по выбранной оси. Вместо X надо подставлять X, Y или Z.
+`SetLocalEulerAnglesX` и `SetLocalEulerAnglesXX` - устанавливают локальный поворот объекта по выбранной оси. 
 ```
 transform.SetLocalEulerAnglesX(45f);
 transform.SetLocalEulerAnglesYZ(0f, 90f);
 ```
 
-`SetLocalScaleX` и `SetLocalScaleXX` - устанавливают локальный масштаб объекта по выбранной оси. Вместо X надо подставлять X, Y или Z.
+`SetLocalScaleX` и `SetLocalScaleXX` - устанавливают локальный масштаб объекта по выбранной оси.
 ```
 transform.SetLocalScaleX(2f);
 transform.SetLocalScaleXZ(2f, 3f);
@@ -283,7 +283,7 @@ transform.AddChilds(first, second, third);
 transform.DestroyChilds();
 ```
 
-`DestroyChildsWhere` - удаляет все дочерние объекты удовлетворящие условию.
+`DestroyChildsWhere` - удаляет все дочерние объекты удовлетворяющие условию.
 ```
 transform.DestroyChildsWhere(c => c.name.StartsWith("abc"));
 ```
@@ -302,7 +302,7 @@ transform.DestroyLastChild();
 #№ Camera
 `SetBackgroundColor` и `SetBackgroundColorXXX` - устанавливают цвет заднего фона камеры.
 ```
-camera.SetBackgroundColorG(1f);
+camera.SetBackgroundColorGB(1f, 0.5f);
 ```
 
 `SetLensShiftX` и `SetLensShiftY` - устанавливает смещение линзы камеры.
@@ -361,16 +361,13 @@ camera.SetBackgroundColorG(1f);
 
 `SetSensorSizeX` и `SetSensorSizeY` - устанавливает размер сенсора.
 
-`SetTransparencySortAxisX` или `SetTransparencySortAxisXXX`, где вместо X подставляются оси - устанавливает вектор вдоль которого происходит измерение расстояния до объектов. 
+`SetTransparencySortAxisX` или `SetTransparencySortAxisXXX` - устанавливает вектор вдоль которого происходит измерение расстояния до объектов. 
 
 ## Vector2 и Vector2Int
-`With` - заменяет значения в указанных осях вектора и возвращает результат как копию.
+`With`, `WithX` и `WithY` - заменяет значения в указанных осях вектора и возвращает результат как копию.
 ```
-Vector2.zero.With(0, 1f);
-```
+Vector2.zero.With(0, 1f); // 0 - это номер оси, а 1f - значение по этой оси.
 
-`WithX` и `WithY` - заменяют значения в выбранных осях вектора и возвращает результат как копию.
-```
 Vector2.zero.WithX(1f);
 Vector2.zero.WithY(2f);
 ```
@@ -381,7 +378,7 @@ Vector2.up.GetYX();
 ```
 
 
-`InsertX` - подставляет значение в позицию X тем самым расширяя текущий вектор до трехмерного и возвращая его как результат. Вместо X надо подставлять X, Y или Z.
+`InsertX` - подставляет значение в позицию X тем самым расширяя текущий вектор до трехмерного и возвращая его как результат. Вместо X можно подставлять X, Y или Z.
 ```
 Vector2.zero.InsertX(1f); // [1, 0, 0]
 Vector2.zero.InsertY(1f); // [0, 1, 0]
