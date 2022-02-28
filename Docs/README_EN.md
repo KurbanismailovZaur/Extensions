@@ -8,7 +8,7 @@ To work with extensions, simply include the `Extenesions` namespace in your code
 Using Extensions;
 ```
 
-In some cases, method names in this documentation will end with `XX`, `XXX` or `XXXXXX`, meaning you can substitute any combination of [X, Y, Z, W] (in case of vectors) or [R, G, B, A] (in case of colors) instead.
+In some cases, method names in this documentation will end with `XX`, `XXX` or `XXXX`, meaning you can substitute any combination of [X, Y, Z, W] (in case of vectors) or [R, G, B, A] (in case of colors) instead.
 
 Example:
 ```
