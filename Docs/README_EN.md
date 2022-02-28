@@ -12,9 +12,17 @@ In some cases, method names in this documentation will end with `XX`, `XXX` or `
 
 Example:
 ```
-color.WithG(1f); // changes the color of the G channel to 1f and returns the result as a copy.
-color.WithRB(0.5f, 1f) // changes color of channel R to 0.5f and B to 1f and returns the result as a copy.
-vector.GetXZ(); // Extracts the X and Z components from the vector and returns them as a Vector2 object.
+// changes the color of the G channel to 1f 
+// and returns the result as a copy.
+color.WithG(1f); 
+
+// changes color of channel R to 0.5f 
+// and B to 1f and returns the result as a copy.
+color.WithRB(0.5f, 1f) 
+
+// Extracts the X and Z components from the vector 
+// and returns them as a Vector2 object.
+vector.GetXZ(); 
 ```
 
 ## Float and Double
