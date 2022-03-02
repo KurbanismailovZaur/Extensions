@@ -146,7 +146,7 @@ namespace Extensions
         /// <param name="vector">Target vector.</param>
         /// <param name="axis1">First axis.</param>
         /// <param name="axis2">Second axis.</param>
-        /// <param name="axis2">Third axis.</param>
+        /// <param name="axis3">Third axis.</param>
         /// <returns><see cref="Vector2"/> vector.</returns>
         public static Vector3Int Get(this Vector3Int vector, int axis1, int axis2, int axis3) => new Vector3Int(vector[axis1], vector[axis2], vector[axis3]);
 
