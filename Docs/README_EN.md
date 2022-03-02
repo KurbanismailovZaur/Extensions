@@ -34,6 +34,12 @@ var remapedX = x.Remap(0f, 1f, 4f, 6f);
 
 The variable `RemapedX` will be equal to `5f`.
 
+`Approximately` - performs an approximate comparison of two floating-point numbers.
+```
+var x = 0.3333333;
+var result = x.Approximately(1f / 3f);
+```
+
 ## Color and Color32
 `With` and `WithXXX` - replaces the values in the specified color channels and returns the result as a copy. Has 3 overloads.
 ```
