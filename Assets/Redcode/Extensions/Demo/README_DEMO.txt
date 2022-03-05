@@ -1,15 +1,15 @@
-Папке Scenes содержит 4 демо-сцены.
+The Scenes folder contains 4 demo scenes.
 
-Демо-сцена ChangingVectorComponent состоит из некоторых объектов и скрипта ChangingVectorComponent. 
-Этот скрипт использует метод расширения WithY на позиции куба, чтобы установить положение по оси Y в значение 0.
-Также данные скрипт использует метод SetPositionXZ, который устанавливает передаваемые в него значения в компоненты X и Z вектора позиции соответственно.
-Это позволяет сократить несколько строк кода. 
+The ChangingVectorComponent demo scene consists of some objects and the ChangingVectorComponent script. 
+This script uses the WithY extension method on the cube position to set the Y-axis position to 0.
+The script also uses the SetPositionXZ method, which sets the values passed to it to the X and Z components of the position vector, respectively.
+This allows you to reduce a few lines of code. 
 
-Демо-сцена DestroyChildsWhere содержит скрипт, который показывает как можно быстро удалить игровые объекты по определенному условию. 
-Это также позволяет нам сократить несколько строк кода.
+The DestroyChildsWhere demo scene contains a script that shows how you can quickly delete game objects by a certain condition. 
+It also allows us to cut a few lines of code.
 
-Демо-сцена GettingComponentsXZ показывает нам как использовать метод GetXZ на трехмерном векторе, чтобы извлечь двумерный вектор содержащий значения компонент X и Z.
+The GettingComponentsXZ demo scene shows us how to use the GetXZ method on a 3D vector to retrieve a 2D vector containing the values of the X and Z components.
 
-Демо-сцена SettingPositionX демонстрирует как можно легко и быстро установить значение по оси X в позицию игрового объекта.
+The SettingPositionX demo scene demonstrates how you can easily and quickly set the X-axis value to a game object position.
 
-Все это лишь примеры использования, для углубленного понимания читайте основную документацию.
+These are all just examples of use, please read the main documentation for a deeper understanding.
