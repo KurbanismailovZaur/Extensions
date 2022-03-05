@@ -122,6 +122,13 @@ namespace Extensions
         public static void SetAnchoredPosition3DXY(this RectTransform rectTransform, float x, float y) => rectTransform.anchoredPosition3D = rectTransform.anchoredPosition3D.WithXY(x, y);
 
         /// <summary>
+        /// Sets anchor position 3d x and y values of the rectTransform.
+        /// </summary>
+        /// <param name="rectTransform">Target rectTransform.</param>
+        /// <param name="position">Position to set.</param>
+        public static void SetAnchoredPosition3DXY(this RectTransform rectTransform, Vector2 position) => rectTransform.anchoredPosition3D = rectTransform.anchoredPosition3D.WithXY(position.x, position.y);
+
+        /// <summary>
         /// Sets anchor position 3d x and z values of the rectTransform.
         /// </summary>
         /// <param name="rectTransform">Target rectTransform.</param>
@@ -130,12 +137,26 @@ namespace Extensions
         public static void SetAnchoredPosition3DXZ(this RectTransform rectTransform, float x, float z) => rectTransform.anchoredPosition3D = rectTransform.anchoredPosition3D.WithXZ(x, z);
 
         /// <summary>
+        /// Sets anchor position 3d x and z values of the rectTransform.
+        /// </summary>
+        /// <param name="rectTransform">Target rectTransform.</param>
+        /// <param name="position">Position to set.</param>
+        public static void SetAnchoredPosition3DXZ(this RectTransform rectTransform, Vector2 position) => rectTransform.anchoredPosition3D = rectTransform.anchoredPosition3D.WithXZ(position.x, position.y);
+
+        /// <summary>
         /// Sets anchor position 3d y and z values of the rectTransform.
         /// </summary>
         /// <param name="rectTransform">Target rectTransform.</param>
         /// <param name="y">Value to set.</param>
         /// <param name="z">Value to set.</param>
         public static void SetAnchoredPosition3DYZ(this RectTransform rectTransform, float y, float z) => rectTransform.anchoredPosition3D = rectTransform.anchoredPosition3D.WithYZ(y, z);
+
+        /// <summary>
+        /// Sets anchor position 3d y and z values of the rectTransform.
+        /// </summary>
+        /// <param name="rectTransform">Target rectTransform.</param>
+        /// <param name="position">Position to set.</param>
+        public static void SetAnchoredPosition3DYZ(this RectTransform rectTransform, Vector2 position) => rectTransform.anchoredPosition3D = rectTransform.anchoredPosition3D.WithYZ(position.x, position.y);
 
         /// <summary>
         /// Sets pivot x value of the rectTransform.

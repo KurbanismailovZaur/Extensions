@@ -72,6 +72,14 @@ namespace Extensions
         public static Vector3Int WithXY(this Vector3Int vector, int x, int y) => With(vector, 0, x, 1, y);
 
         /// <summary>
+        /// Sets value to vector's x and y axis.
+        /// </summary>
+        /// <param name="vector">Target vector.</param>
+        /// <param name="value">Value to set.</param>
+        /// <returns>Changed copy of the vector.</returns>
+        public static Vector3 WithXY(this Vector3Int vector, Vector2Int value) => With(vector, 0, value.x, 1, value.y);
+
+        /// <summary>
         /// Sets value to vector's x and z axis.
         /// </summary>
         /// <param name="vector">Target vector.</param>
@@ -81,6 +89,14 @@ namespace Extensions
         public static Vector3Int WithXZ(this Vector3Int vector, int x, int z) => With(vector, 0, x, 2, z);
 
         /// <summary>
+        /// Sets value to vector's x and z axis.
+        /// </summary>
+        /// <param name="vector">Target vector.</param>
+        /// <param name="value">Value to set.</param>
+        /// <returns>Changed copy of the vector.</returns>
+        public static Vector3 WithXZ(this Vector3Int vector, Vector2Int value) => With(vector, 0, value.x, 2, value.y);
+
+        /// <summary>
         /// Sets value to vector's y and z axis.
         /// </summary>
         /// <param name="vector">Target vector.</param>
@@ -88,6 +104,14 @@ namespace Extensions
         /// <param name="z">Value to set.</param>
         /// <returns>Changed copy of the vector.</returns>
         public static Vector3Int WithYZ(this Vector3Int vector, int y, int z) => With(vector, 1, y, 2, z);
+
+        /// <summary>
+        /// Sets value to vector's y and z axis.
+        /// </summary>
+        /// <param name="vector">Target vector.</param>
+        /// <param name="value">Value to set.</param>
+        /// <returns>Changed copy of the vector.</returns>
+        public static Vector3 WithYZ(this Vector3Int vector, Vector2Int value) => With(vector, 1, value.x, 2, value.y);
 
         /// <summary>
         /// Gets <see cref="Vector2"/> by axes.

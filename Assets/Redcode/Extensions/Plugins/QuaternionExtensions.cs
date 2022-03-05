@@ -77,6 +77,14 @@ namespace Extensions
         public static Quaternion WithXY(this Quaternion quaternion, float x, float y) => With(quaternion, 0, x, 1, y);
 
         /// <summary>
+        /// Sets <paramref name="values"/> components to specified axes.
+        /// </summary>
+        /// <param name="quaternion">Target quaternion.</param>
+        /// <param name="values">Value to set.</param>
+        /// <returns><inheritdoc cref="With(Quaternion, int, float)"/></returns>
+        public static Quaternion WithXY(this Quaternion quaternion, Vector2 values) => With(quaternion, 0, values.x, 1, values.y);
+
+        /// <summary>
         /// Sets <paramref name="x"/> and <paramref name="z"/> values to respective axes.
         /// </summary>
         /// <param name="quaternion">Target quaternion.</param>
@@ -84,6 +92,14 @@ namespace Extensions
         /// <param name="z">Value to set.</param>
         /// <returns><inheritdoc cref="With(Quaternion, int, float)"/></returns>
         public static Quaternion WithXZ(this Quaternion quaternion, float x, float z) => With(quaternion, 0, x, 2, z);
+
+        /// <summary>
+        /// Sets <paramref name="values"/> components to specified axes.
+        /// </summary>
+        /// <param name="quaternion">Target quaternion.</param>
+        /// <param name="values">Value to set.</param>
+        /// <returns><inheritdoc cref="With(Quaternion, int, float)"/></returns>
+        public static Quaternion WithXZ(this Quaternion quaternion, Vector2 values) => With(quaternion, 0, values.x, 2, values.y);
 
         /// <summary>
         /// Sets <paramref name="y"/> and <paramref name="z"/> values to respective axes.
@@ -95,6 +111,14 @@ namespace Extensions
         public static Quaternion WithYZ(this Quaternion quaternion, float y, float z) => With(quaternion, 1, y, 2, z);
 
         /// <summary>
+        /// Sets <paramref name="values"/> components to specified axes.
+        /// </summary>
+        /// <param name="quaternion">Target quaternion.</param>
+        /// <param name="values">Value to set.</param>
+        /// <returns><inheritdoc cref="With(Quaternion, int, float)"/></returns>
+        public static Quaternion WithYZ(this Quaternion quaternion, Vector2 values) => With(quaternion, 1, values.x, 2, values.y);
+
+        /// <summary>
         /// Sets <paramref name="x"/> and <paramref name="w"/> values to respective axes.
         /// </summary>
         /// <param name="quaternion">Target quaternion.</param>
@@ -102,6 +126,14 @@ namespace Extensions
         /// <param name="w">Value to set.</param>
         /// <returns><inheritdoc cref="With(Quaternion, int, float)"/></returns>
         public static Quaternion WithXW(this Quaternion quaternion, float x, float w) => With(quaternion, 0, x, 3, w);
+
+        /// <summary>
+        /// Sets <paramref name="values"/> components to specified axes.
+        /// </summary>
+        /// <param name="quaternion">Target quaternion.</param>
+        /// <param name="values">Value to set.</param>
+        /// <returns><inheritdoc cref="With(Quaternion, int, float)"/></returns>
+        public static Quaternion WithXW(this Quaternion quaternion, Vector2 values) => With(quaternion, 0, values.x, 3, values.y);
 
         /// <summary>
         /// Sets <paramref name="y"/> and <paramref name="w"/> values to respective axes.
@@ -113,6 +145,14 @@ namespace Extensions
         public static Quaternion WithYW(this Quaternion quaternion, float y, float w) => With(quaternion, 1, y, 3, w);
 
         /// <summary>
+        /// Sets <paramref name="values"/> components to specified axes.
+        /// </summary>
+        /// <param name="quaternion">Target quaternion.</param>
+        /// <param name="values">Value to set.</param>
+        /// <returns><inheritdoc cref="With(Quaternion, int, float)"/></returns>
+        public static Quaternion WithYW(this Quaternion quaternion, Vector2 values) => With(quaternion, 1, values.x, 3, values.y);
+
+        /// <summary>
         /// Sets <paramref name="z"/> and <paramref name="w"/> values to respective axes.
         /// </summary>
         /// <param name="quaternion">Target quaternion.</param>
@@ -120,6 +160,14 @@ namespace Extensions
         /// <param name="w">Value to set.</param>
         /// <returns><inheritdoc cref="With(Quaternion, int, float)"/></returns>
         public static Quaternion WithZW(this Quaternion quaternion, float z, float w) => With(quaternion, 2, z, 3, w);
+
+        /// <summary>
+        /// Sets <paramref name="values"/> components to specified axes.
+        /// </summary>
+        /// <param name="quaternion">Target quaternion.</param>
+        /// <param name="values">Value to set.</param>
+        /// <returns><inheritdoc cref="With(Quaternion, int, float)"/></returns>
+        public static Quaternion WithZW(this Quaternion quaternion, Vector2 values) => With(quaternion, 2, values.x, 3, values.y);
 
         /// <summary>
         /// Sets values to passed axes.
@@ -151,6 +199,14 @@ namespace Extensions
         public static Quaternion WithXYZ(this Quaternion quaternion, float x, float y, float z) => With(quaternion, 0, x, 1, y, 2, z);
 
         /// <summary>
+        /// Sets <paramref name="values"/> components to specified axes.
+        /// </summary>
+        /// <param name="quaternion">Target quaternion.</param>
+        /// <param name="values">Value to set.</param>
+        /// <returns><inheritdoc cref="With(Quaternion, int, float)"/></returns>
+        public static Quaternion WithXYZ(this Quaternion quaternion, Vector3 values) => With(quaternion, 0, values.x, 1, values.y, 2, values.z);
+
+        /// <summary>
         /// Sets <paramref name="x"/>, <paramref name="y"/> and <paramref name="w"/> values to respective axes.
         /// </summary>
         /// <param name="quaternion">Target quaternion.</param>
@@ -159,6 +215,14 @@ namespace Extensions
         /// <param name="w">Value to set.</param>
         /// <returns><inheritdoc cref="With(Quaternion, int, float)"/></returns>
         public static Quaternion WithXYW(this Quaternion quaternion, float x, float y, float w) => With(quaternion, 0, x, 1, y, 3, w);
+
+        /// <summary>
+        /// Sets <paramref name="values"/> components to specified axes.
+        /// </summary>
+        /// <param name="quaternion">Target quaternion.</param>
+        /// <param name="values">Value to set.</param>
+        /// <returns><inheritdoc cref="With(Quaternion, int, float)"/></returns>
+        public static Quaternion WithXYW(this Quaternion quaternion, Vector3 values) => With(quaternion, 0, values.x, 1, values.y, 3, values.z);
 
         /// <summary>
         /// Sets <paramref name="x"/>, <paramref name="z"/> and <paramref name="w"/> values to respective axes.
@@ -171,6 +235,14 @@ namespace Extensions
         public static Quaternion WithXZW(this Quaternion quaternion, float x, float z, float w) => With(quaternion, 0, x, 2, z, 3, w);
 
         /// <summary>
+        /// Sets <paramref name="values"/> components to specified axes.
+        /// </summary>
+        /// <param name="quaternion">Target quaternion.</param>
+        /// <param name="values">Value to set.</param>
+        /// <returns><inheritdoc cref="With(Quaternion, int, float)"/></returns>
+        public static Quaternion WithXZW(this Quaternion quaternion, Vector3 values) => With(quaternion, 0, values.x, 2, values.y, 3, values.z);
+
+        /// <summary>
         /// Sets <paramref name="y"/>, <paramref name="z"/> and <paramref name="w"/> values to respective axes.
         /// </summary>
         /// <param name="quaternion">Target quaternion.</param>
@@ -179,5 +251,13 @@ namespace Extensions
         /// <param name="w">Value to set.</param>
         /// <returns><inheritdoc cref="With(Quaternion, int, float)"/></returns>
         public static Quaternion WithYZW(this Quaternion quaternion, float y, float z, float w) => With(quaternion, 1, y, 2, z, 3, w);
+
+        /// <summary>
+        /// Sets <paramref name="values"/> components to specified axes.
+        /// </summary>
+        /// <param name="quaternion">Target quaternion.</param>
+        /// <param name="values">Value to set.</param>
+        /// <returns><inheritdoc cref="With(Quaternion, int, float)"/></returns>
+        public static Quaternion WithYZW(this Quaternion quaternion, Vector3 values) => With(quaternion, 1, values.x, 2, values.y, 3, values.z);
     }
 }

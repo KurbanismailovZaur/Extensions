@@ -80,6 +80,14 @@ namespace Extensions
         public static Vector4 WithXY(this Vector4 vector, float x, float y) => With(vector, 0, x, 1, y);
 
         /// <summary>
+        /// Sets value to vector's x and y axis.
+        /// </summary>
+        /// <param name="vector">Target vector.</param>
+        /// <param name="value">Value to set.</param>
+        /// <returns>Changed copy of the vector.</returns>
+        public static Vector4 WithXY(this Vector4 vector, Vector2 value) => With(vector, 0, value.x, 1, value.y);
+
+        /// <summary>
         /// Sets value to vector's x and z axis.
         /// </summary>
         /// <param name="vector">Target vector.</param>
@@ -87,6 +95,14 @@ namespace Extensions
         /// <param name="z">Value to set.</param>
         /// <returns>Changed copy of the vector.</returns>
         public static Vector4 WithXZ(this Vector4 vector, float x, float z) => With(vector, 0, x, 2, z);
+
+        /// <summary>
+        /// Sets value to vector's x and z axis.
+        /// </summary>
+        /// <param name="vector">Target vector.</param>
+        /// <param name="value">Value to set.</param>
+        /// <returns>Changed copy of the vector.</returns>
+        public static Vector4 WithXZ(this Vector4 vector, Vector2 value) => With(vector, 0, value.x, 2, value.y);
 
         /// <summary>
         /// Sets value to vector's x and w axis.
@@ -98,6 +114,14 @@ namespace Extensions
         public static Vector4 WithXW(this Vector4 vector, float x, float w) => With(vector, 0, x, 3, w);
 
         /// <summary>
+        /// Sets value to vector's x and w axis.
+        /// </summary>
+        /// <param name="vector">Target vector.</param>
+        /// <param name="value">Value to set.</param>
+        /// <returns>Changed copy of the vector.</returns>
+        public static Vector4 WithXW(this Vector4 vector, Vector2 value) => With(vector, 0, value.x, 3, value.y);
+
+        /// <summary>
         /// Sets value to vector's y and z axis.
         /// </summary>
         /// <param name="vector">Target vector.</param>
@@ -105,6 +129,14 @@ namespace Extensions
         /// <param name="z">Value to set.</param>
         /// <returns>Changed copy of the vector.</returns>
         public static Vector4 WithYZ(this Vector4 vector, float y, float z) => With(vector, 1, y, 2, z);
+
+        /// <summary>
+        /// Sets value to vector's y and z axis.
+        /// </summary>
+        /// <param name="vector">Target vector.</param>
+        /// <param name="value">Value to set.</param>
+        /// <returns>Changed copy of the vector.</returns>
+        public static Vector4 WithYZ(this Vector4 vector, Vector2 value) => With(vector, 1, value.x, 2, value.y);
 
         /// <summary>
         /// Sets value to vector's y and w axis.
@@ -116,6 +148,14 @@ namespace Extensions
         public static Vector4 WithYW(this Vector4 vector, float y, float w) => With(vector, 1, y, 3, w);
 
         /// <summary>
+        /// Sets value to vector's y and w axis.
+        /// </summary>
+        /// <param name="vector">Target vector.</param>
+        /// <param name="value">Value to set.</param>
+        /// <returns>Changed copy of the vector.</returns>
+        public static Vector4 WithYW(this Vector4 vector, Vector2 value) => With(vector, 1, value.x, 3, value.y);
+
+        /// <summary>
         /// Sets value to vector's z and w axis.
         /// </summary>
         /// <param name="vector">Target vector.</param>
@@ -123,6 +163,14 @@ namespace Extensions
         /// <param name="w">Value to set.</param>
         /// <returns>Changed copy of the vector.</returns>
         public static Vector4 WithZW(this Vector4 vector, float z, float w) => With(vector, 2, z, 3, w);
+
+        /// <summary>
+        /// Sets value to vector's z and w axis.
+        /// </summary>
+        /// <param name="vector">Target vector.</param>
+        /// <param name="value">Value to set.</param>
+        /// <returns>Changed copy of the vector.</returns>
+        public static Vector4 WithZW(this Vector4 vector, Vector2 value) => With(vector, 2, value.x, 3, value.y);
 
         /// <summary>
         /// Sets values to vector's axes.
@@ -155,6 +203,14 @@ namespace Extensions
         public static Vector4 WithXYZ(this Vector4 vector, float x, float y, float z) => With(vector, 0, x, 1, y, 2, z);
 
         /// <summary>
+        /// Sets value to vector's x, y and z axis.
+        /// </summary>
+        /// <param name="vector">Target vector.</param>
+        /// <param name="value">Value to set.</param>
+        /// <returns>Changed copy of the vector.</returns>
+        public static Vector4 WithXYZ(this Vector4 vector, Vector3 value) => With(vector, 0, value.x, 1, value.y, 2, value.z);
+
+        /// <summary>
         /// Sets value to vector's x, y and w axis.
         /// </summary>
         /// <param name="vector">Target vector.</param>
@@ -163,6 +219,14 @@ namespace Extensions
         /// <param name="w">Value to set.</param>
         /// <returns>Changed copy of the vector.</returns>
         public static Vector4 WithXYW(this Vector4 vector, float x, float y, float w) => With(vector, 0, x, 1, y, 3, w);
+
+        /// <summary>
+        /// Sets value to vector's x, y and w axis.
+        /// </summary>
+        /// <param name="vector">Target vector.</param>
+        /// <param name="value">Value to set.</param>
+        /// <returns>Changed copy of the vector.</returns>
+        public static Vector4 WithXYW(this Vector4 vector, Vector3 value) => With(vector, 0, value.x, 1, value.y, 3, value.z);
 
         /// <summary>
         /// Sets value to vector's x, z and w axis.
@@ -175,6 +239,14 @@ namespace Extensions
         public static Vector4 WithXZW(this Vector4 vector, float x, float z, float w) => With(vector, 0, x, 2, z, 3, w);
 
         /// <summary>
+        /// Sets value to vector's x, z and w axis.
+        /// </summary>
+        /// <param name="vector">Target vector.</param>
+        /// <param name="value">Value to set.</param>
+        /// <returns>Changed copy of the vector.</returns>
+        public static Vector4 WithXZW(this Vector4 vector, Vector3 value) => With(vector, 0, value.x, 2, value.y, 3, value.z);
+
+        /// <summary>
         /// Sets value to vector's y, z and w axis.
         /// </summary>
         /// <param name="vector">Target vector.</param>
@@ -183,6 +255,14 @@ namespace Extensions
         /// <param name="w">Value to set.</param>
         /// <returns>Changed copy of the vector.</returns>
         public static Vector4 WithYZW(this Vector4 vector, float y, float z, float w) => With(vector, 1, y, 2, z, 3, w);
+
+        /// <summary>
+        /// Sets value to vector's y, z and w axis.
+        /// </summary>
+        /// <param name="vector">Target vector.</param>
+        /// <param name="value">Value to set.</param>
+        /// <returns>Changed copy of the vector.</returns>
+        public static Vector4 WithYZW(this Vector4 vector, Vector3 value) => With(vector, 1, value.x, 2, value.y, 3, value.z);
 
         /// <summary>
         /// Gets <see cref="Vector2"/> by axes.

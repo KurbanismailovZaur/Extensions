@@ -352,7 +352,7 @@ namespace Extensions
         public static void SetTransparencySortAxisZ(this Camera camera, float z) => camera.transparencySortAxis = camera.transparencySortAxis.WithZ(z);
 
         /// <summary>
-        /// Set transparency sort axes x and y of the camera.
+        /// Set transparency sort x and y axes of the camera.
         /// </summary>
         /// <param name="camera">Target camera.</param>
         /// <param name="x">X axis value to set.</param>
@@ -360,7 +360,14 @@ namespace Extensions
         public static void SetTransparencySortAxisXY(this Camera camera, float x, float y) => camera.transparencySortAxis = camera.transparencySortAxis.WithXY(x, y);
 
         /// <summary>
-        /// Set transparency sort axes x and y of the camera.
+        /// Set transparency sort x and y axes of the camera.
+        /// </summary>
+        /// <param name="camera">Target camera.</param>
+        /// <param name="vector">Vector to set.</param>
+        public static void SetTransparencySortAxisXY(this Camera camera, Vector2 vector) => camera.transparencySortAxis = camera.transparencySortAxis.WithXY(vector.x, vector.y);
+
+        /// <summary>
+        /// Set transparency sort x and y axes of the camera.
         /// </summary>
         /// <param name="camera">Target camera.</param>
         /// <param name="x">X axis value to set.</param>
@@ -368,11 +375,25 @@ namespace Extensions
         public static void SetTransparencySortAxisXZ(this Camera camera, float x, float z) => camera.transparencySortAxis = camera.transparencySortAxis.WithXZ(x, z);
 
         /// <summary>
-        /// Set transparency sort axes y and z of the camera.
+        /// Set transparency sort x and z axes of the camera.
+        /// </summary>
+        /// <param name="camera">Target camera.</param>
+        /// <param name="vector">Vector to set.</param>
+        public static void SetTransparencySortAxisXZ(this Camera camera, Vector2 vector) => camera.transparencySortAxis = camera.transparencySortAxis.WithXZ(vector.x, vector.y);
+
+        /// <summary>
+        /// Set transparency sort y and z axes of the camera.
         /// </summary>
         /// <param name="camera">Target camera.</param>
         /// <param name="y">Y axis value to set.</param>
         /// <param name="z">Z axis value to set.</param>
         public static void SetTransparencySortAxisYZ(this Camera camera, float y, float z) => camera.transparencySortAxis = camera.transparencySortAxis.WithYZ(y, z);
+
+        /// <summary>
+        /// Set transparency sort y and z axes of the camera.
+        /// </summary>
+        /// <param name="camera">Target camera.</param>
+        /// <param name="vector">Vector to set.</param>
+        public static void SetTransparencySortAxisYZ(this Camera camera, Vector2 vector) => camera.transparencySortAxis = camera.transparencySortAxis.WithYZ(vector.x, vector.y);
     }
 }
