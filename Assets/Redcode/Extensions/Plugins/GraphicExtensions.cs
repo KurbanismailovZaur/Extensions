@@ -1,11 +1,7 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Extensions
+namespace Redcode.Extensions
 {
     public static class GraphicExtensions
     {

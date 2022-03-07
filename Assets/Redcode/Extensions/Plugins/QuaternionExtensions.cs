@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-namespace Extensions
+namespace Redcode.Extensions
 {
     public static class QuaternionExtensions
     {

@@ -1,13 +1,6 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using UnityEngine;
-using Extensions;
-
-namespace Extensions
+namespace Redcode.Extensions
 {
-	public static class DoubleExtensions
+    public static class DoubleExtensions
     {
         /// <summary>
         /// Remap a value from one range to another.

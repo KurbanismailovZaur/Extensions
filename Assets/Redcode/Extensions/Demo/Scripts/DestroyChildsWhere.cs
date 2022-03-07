@@ -1,10 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
+using Redcode.Extensions;
 using UnityEngine;
-using Extensions;
-using UnityEngine.UI;
 
-namespace Demo
+namespace Redcode.Demo
 {
     public class DestroyChildsWhere : MonoBehaviour
     {

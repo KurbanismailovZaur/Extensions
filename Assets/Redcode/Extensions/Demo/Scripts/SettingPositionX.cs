@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
+using Redcode.Extensions;
 using UnityEngine;
-using Extensions;
 
-namespace Demo
+namespace Redcode.Demo
 {
     public class SettingPositionX : MonoBehaviour
     {
