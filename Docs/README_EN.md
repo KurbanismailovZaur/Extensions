@@ -2,10 +2,10 @@
 Extensions are methods of extending many types of data in Unity, which greatly simplifies everyday tasks when creating games.
 
 ## Customization
-To work with extensions, simply include the `Extenesions` namespace in your code.
+To work with extensions, simply include the `Redcode.Extenesions` namespace in your code.
 
 ```
-Using Extensions;
+Using Redcode.Extensions;
 ```
 
 In some cases, method names in this documentation will end with `XX`, `XXX` or `XXXX`, meaning you can substitute any combination of [X, Y, Z, W] (in case of vectors) or [R, G, B, A] (in case of colors) instead.
