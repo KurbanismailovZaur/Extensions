@@ -74,7 +74,7 @@ var list = new List<int>() { 1, 2, 3, 4, 5 }
 var element = list.GetRandomElement();
 ```
 
-`Except` - returns a copy of the sequence with the excluded element.
+`Except` - returns a copy of the sequence without the excluded element.
 ```
 var list = new List<int>() { 1, 2, 3, 4, 5 };
 list.Except(3); // [ 1, 2, 4, 5 ]
