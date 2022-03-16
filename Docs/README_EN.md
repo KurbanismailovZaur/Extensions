@@ -4,14 +4,14 @@ Extensions are methods of extending many types of data in Unity, which greatly s
 ## Customization
 To work with extensions, simply include the `Redcode.Extenesions` namespace in your code.
 
-```
+```c#
 Using Redcode.Extensions;
 ```
 
 In some cases, method names in this documentation will end with `XX`, `XXX` or `XXXX`, meaning you can substitute any combination of [X, Y, Z, W] (in case of vectors) or [R, G, B, A] (in case of colors) instead.
 
 Example:
-```
+```c#
 // changes the color of the G channel to 1f 
 // and returns the result as a copy.
 color.WithG(1f); 
@@ -27,7 +27,7 @@ vector.GetXZ();
 
 ## Float and Double
 `Remap` - reassigns a number from the initial range to the number of the final range.
-```
+```c#
 var x = 0.5f;
 var remapedX = x.Remap(0f, 1f, 4f, 6f);
 ```
@@ -35,14 +35,14 @@ var remapedX = x.Remap(0f, 1f, 4f, 6f);
 The variable `RemapedX` will be equal to `5f`.
 
 `Approximately` - performs an approximate comparison of two floating-point numbers.
-```
+```c#
 var x = 0.3333333;
 var result = x.Approximately(1f / 3f);
 ```
 
 ## Color and Color32
 `With` and `WithXXX` - replaces the values in the specified color channels and returns the result as a copy. Has 3 overloads.
-```
+```c#
 var gray = Color.black.With(0, 0.5f, 1, 0.75f, 2, 1f); // R = 0.5f, G = 0.75f, B = 1f.
 
 var green = Color.black.WithG(1f);
@@ -52,7 +52,7 @@ var yellow = Color.black.WithRGA(1f, 1f, 0f); // A - color alpha channel
 
 ## Graphic
 `SetColorXXX` - sets the value to the selected color channels of the Graphic.color property.
-```
+```c#
 image.SetColorR(1f);
 image.SetColorGB(1f, 1f);
 image.SetColorRBA(0f, 0f, 0f);
@@ -61,7 +61,7 @@ image.SetColorRBA(0f, 0f, 0f);
 
 ## IComparable
 The `IsBetween` method checks if an object is between two other objects. Also accepts two additional parameters - boolean values indicating whether the check should be done inclusively or exclusively.
-```
+```c#
 var x = 1;
 var result1 = x.IsBetween(0, 2); // exclusively
 var result2 = x.IsBetween(0, 1, true, true); // inclusively on both sides
@@ -69,32 +69,32 @@ var result2 = x.IsBetween(0, 1, true, true); // inclusively on both sides
 
 ## IEnumerable.
 `GetRandomElement` - returns an arbitrary sequence element.
-```
+```c#
 var list = new List<int>() { 1, 2, 3, 4, 5 }
 var element = list.GetRandomElement();
 ```
 
 `Except` - returns a copy of the sequence without the excluded element.
-```
+```c#
 var list = new List<int>() { 1, 2, 3, 4, 5 };
 list.Except(3); // [ 1, 2, 4, 5 ]
 ```
 
 `Shuffled` - returns a shuffled copy of the sequence.
-```
+```c#
 var list = new List<int>() { 1, 2, 3, 4, 5 };
 var shuffled = list.Shuffled();
 ```
 
 `AsString` - Returns a string representing the elements of a sequence separated by commas and in square brackets.
-```
+```c#
 var list = new List<int>() { 1, 2, 3, 4, 5 };
 print(list.AsString());
 ```
 
 ## IEquatable
 `EqualsToAll` - compares the current object with those passed to the method, returns `true` if the `Object.Equals` method returns true for all of them. Objects passed to the method must have the same type as the original.
-```
+```c#
 int x, y, z;
 x = y = z = 1;
 
@@ -102,7 +102,7 @@ var result = x.EqualsToAll(y, z);
 ```
 
 `EqualsToAny` - compares the current object with the ones passed to the method, returns `true` if for at least one of them the method `Object.Equals` returns true.  Objects passed to the method must be of the same type as the original.
-```
+```c#
 int x = 1;
 int y = 1;
 int z = 2;
@@ -112,20 +112,20 @@ var result = x.EqualsToAny(y, z);
 
 ## IList
 `Pop` - removes the element specified by index from the list and returns it.
-```
+```c#
 var list = new List<int>() { 1, 2, 3, 4, 5 };
 var element = list.Pop(2);
 ```
 
 `PopRandom` - removes an arbitrary element from the list and returns it.
-```
+```c#
 var list = new List<int>() { 1, 2, 3, 4, 5 };
 var element = list.PopRandom();
 ```
 
 ## System.Object
 `EqualsToAll` - compares the current object with those passed to the method, returns `true` if the `Object.Equals` method returns true for all of them.
-```
+```c#
 int x, y, z;
 x = y = z = 1;
 
@@ -133,7 +133,7 @@ var result = x.EqualsToAll(y, z);
 ```
 
 `EqualsToAny` - compares the current object with those passed to the method, returns `true` if for at least one of them the method `Object.Equals` returns true.
-```
+```c#
 int x = 1;
 int y = 1;
 int z = 2;
@@ -144,7 +144,7 @@ var result = x.EqualsToAny(y, z);
 ## Quaternion
 `With` and `WithXXX` - replaces the values in the specified axes of the quaternion and returns the result as a copy. Has 3 overloads. Works directly with values of `X`, `Y`, `Z`, `W` quaternion (not Euler angles).
 
-```
+```c#
 transform.rotation.With(0, 4f, 2, 8f, 3, -32);
 
 transform.rotation.WithX(8f);
@@ -180,63 +180,63 @@ transform.rotation.WithXZW(4f, 8f, -32);
 `WithYMax` - sets the maximal Y position of the rectangle.
 
 Example:
-```
+```c#
 rect = rect.WithSize(Vector2.one).WithX(4f);
 ```
 
 ## RectTransform.
 `SetSizeDeltaX` and `SetSizeDeltaY` - sets one of the values of the `RectTransform.sizeDelta` property to the specified value.
-```
+```c#
 RectTransform.SetSizeDeltaX(100f);
 ``RectTransform.SetSizeDeltaY(200f);
 ```
 
 `SetAnchorMinX` and `SetAnchorMinY` - sets one of the values of the `RectTransform.anchorMin` property to the specified value.
-```
+```c#
 rectTransform.SetAnchorMinX(100f);
 ``RectTransform.SetAnchorMinY(200f);
 ```
 
 `SetAnchorMaxX` and `SetAnchorMaxY` - sets one of the values of the `RectTransform.anchorMax` property to the specified value.
-```
+```c#
 rectTransform.SetAnchorMaxX(200f);
 RectTransform.SetAnchorMaxY(400f);
 ```
 
 `SetAnchoredPositionX` and `SetAnchoredPositionY` - sets one of the values of the `RectTransform.anchoredPosition` property to the specified value.
-```
+```c#
 rectTransform.SetAnchoredPositionX(100f);
 ``RectTransform.SetAnchoredPositionY(100f);
 ```
 
 `SetAnchoredPosition3DX` and `SetAnchoredPosition3DXX` - sets the selected value of the `RectTransform.anchoredPosition3D` property to the specified value.
-```
+```c#
 rectTransform.SetAnchoredPosition3DX(50f);
 The rectTransform.SetAnchoredPosition3DZ(0f);
 The rectTransform.SetAnchoredPosition3DXY(10f, 20f);
 ```
 
 `SetPivotX` and `SetPivotY` - sets one of the values of the `RectTransform.pivot` property to the specified value, with an element offset.
-```
+```c#
 rectTransform.SetPivotX(100f);
 ``RectTransform.SetPivotY(100f);
 ```
 
 `SetPivotOnly`, `SetPivotOnlyX` and `SetPivotOnlyY` - sets one of the values of the `RectTransform.pivot` property to the specified value, the element remains in place.
-```
+```c#
 rectTransform.SetPivotOnlyX(100f);
 The rectTransform.SetPivotOnlyY(200f);
 The rectTransform.SetPivotOnly(100f, 200f);
 ```
 
 `GetSize` - calculates and returns the actual size of the element.
-```
+```c#
 var size = rectTransform.GetSize();
 ```
 
 ## Scene
 `FindObjectsOfType` - finds all objects (including those not active) in the scene with the specified component.
-```
+```c#
 var transforms = SceneManager.GetActiveScene().FindObjectsOfType<Transform>();
 ```
 
@@ -244,86 +244,86 @@ var transforms = SceneManager.GetActiveScene().FindObjectsOfType<Transform>();
 This class is an auxiliary class and does not store extension methods.
 
 `FindObjectsOfTypeInActiveScene` - finds all objects (including those not active) in the active scene with the specified component.
-```
+```c#
 var transforms = SceneManagerExtensions.FindObjectsOfTypeInActiveScene<Transform>();
 ```
 
 `FindObjectsOfTypeInOpenScenes` - finds all objects (including inactive ones) with the specified component in all open scenes.
-```
+```c#
 var transforms = SceneManagerExtensions.FindObjectsOfTypeInOpenScenes<Transform>();
 ```
 
 ## Transform
 `SetPositionX` and `SetPositionXX` - set the global position of the object along the selected axis.
-```
+```c#
 transform.SetPositionX(1f);
 transform.SetPositionYZ(2f, 3f);
 ```
 
 `SetLocalPositionX` and `SetLocalPositionXX` - set the local position of the object on the selected axis.
-```
+```c#
 transform.SetLocalPositionX(1f);
 transform.SetLocalPositionYZ(2f, 3f);
 ```
 
 `SetEulerAnglesX` and `SetEulerAnglesXX` - set the global rotation of the object along the selected axis.
-```
+```c#
 transform.SetEulerAnglesX(45f);
 transform.SetEulerAnglesYZ(0f, 90f);
 ```
 
 `SetLocalEulerAnglesX` and `SetLocalEulerAnglesXX` - set the local rotation of the object along the selected axis. 
-```
+```c#
 transform.SetLocalEulerAnglesX(45f);
 transform.SetLocalEulerAnglesYZ(0f, 90f);
 ```
 
 `SetLocalScaleX` and `SetLocalScaleXX` - set the local scale of the object along the selected axis.
-```
+```c#
 transform.SetLocalScaleX(2f);
 transform.SetLocalScaleXZ(2f, 3f);
 ```
 
 `SetAsPreviousSibling` and `SetAsNextSibling` - shifts back or forward the current object among other game objects in the scene located in the hierarchy next to the current one.
-```
+```c#
 rectTransform.SetAsPreviousSibling();
 rectTransform.SetAsNextSibling();
 ```
 
 `GetChilds` - returns child objects of the first level.
-```
+```c#
 var childs = transform.GetChilds();
 ```
 
 `AddChilds` - adds child objects to the current one to the end of the list.
-```
+```c#
 transform.AddChilds(first, second, third);
 ```
 
 `DestroyChilds` - removes all child objects.
-```
+```c#
 transform.DestroyChilds();
 ```
 
 `DestroyChildsWhere` - removes all child objects that satisfy the condition.
-```
+```c#
 transform.DestroyChildsWhere(c => c.name.StartsWith("abc"));
 ```
 
 `DestroyChild` - removes child object by index.
-```
+```c#
 transform.DestroyChild(1);
 ```
 
 `DestroyFirstChild` and `DestroyLastChild` - delete the first and last child objects respectively.
-```
+```c#
 transform.DestroyFirstChild();
 transform.DestroyLastChild();
 ```
 
 ## Camera.
 `SetBackgroundColor` and `SetBackgroundColorXXX` - set the color of the camera background.
-```
+```c#
 camera.SetBackgroundColorGB(1f, 0.5f);
 ```
 
@@ -387,7 +387,7 @@ camera.SetBackgroundColorGB(1f, 0.5f);
 
 ## Vector2 and Vector2Int
 `With`, `WithX` and `WithY` - replaces the values in the specified vector axes and returns the result as a copy.
-```
+```c#
 Vector2.zero.With(0, 1f); // 0 is the axis number and 1f is the value on that axis.
 
 Vector2.zero.WithX(1f);
@@ -395,51 +395,51 @@ Vector2.zero.WithY(2f);
 ```
 
 `GetYX` - swaps the X and Y values of the vector and returns the result as a copy.
-```
+```c#
 Vector2.up.GetYX();
 ```
 
 
 `InsertX` - substitutes a value for the X position, thereby expanding the current vector to a three-dimensional vector and returning it as the result. Instead of X you can insert X, Y or Z.
-```
+```c#
 Vector2.zero.InsertX(1f); // [1, 0, 0]
 Vector2.zero.InsertY(1f); // [0, 1, 0]
 Vector2.zero.InsertZ(1f); // [0, 0, 1]
 ```
 
 `MaxComponent` and `MinComponent` - return the maximal and minimal component of the vector respectively.
-```
+```c#
 var max = new Vector2(3.14f, 7f).MaxComponent(); // will return 7
 var min = new Vector2(3.14f, 7f).MinComponent(); // will return 3.14
 ```
 
 ## Vector3 and Vector3Int
 `With` - replaces the values in the specified vector axes and returns the result as a copy. Has 2 overloads.
-```
+```c#
 Vector3.zero.With(0, 1f);
 Vector3.zero.With(0, 1f, 2, 3.14f);
 ```
 
 `WithX` and `WithXX` - substitute values in the selected vector axes and return the result as a copy. Instead of X substitute X, Y or Z.
-```
+```c#
 Vector3.zero.WithX(1f);
 Vector3.zero.WithXZ(0f, 2f);
 ```
 
 `Get` - allows you to select 2 or 3 components of the original vector and their order, thereby forming a new two- or three-dimensional vector and returning it. Has 2 overloads.
-```
+```c#
 var vector2 = new Vector3(1f, 2f, 3f).Get(0, 2); // [1f, 3f];
 var vector3 = new Vector3(1f, 2f, 3f).Get(2, 0, 1); // [3f, 1f, 2f];
 ```
 
 `GetXX` and `GetXXX` - allows you to select 2 or 3 components of the original vector and their order by the method name, thereby forming a new two- or three-dimensional vector and returning it. It has many overloads.
-```
+```c#
 var vector2 = new Vector3(1f, 2f, 3f).GetXZ(); // [1f, 3f];
 var vector3 = new Vector3(1f, 2f, 3f).GetZXY(); // [3f, 1f, 2f];
 ```
 
 `InsertX` - substitutes a value in the X position, thereby expanding the current vector to a four-dimensional vector and returning it as the result. Instead of X you should use X, Y, Z or W.
-```
+```c#
 Vector3.zero.InsertX(1f); // [1, 0, 0, 0]
 Vector3.zero.InsertY(1f); // [0, 1, 0, 0]
 Vector3.zero.InsertZ(1f); // [0, 0, 1, 0]
@@ -447,42 +447,42 @@ Vector3.zero.InsertW(1f); // [0, 0, 0, 1]
 ```
 
 `MaxComponent` and `MinComponent` - return the maximal and minimal component of the vector, respectively.
-```
+```c#
 var max = new Vector3(3.14f, 7f, 12f).MaxComponent(); // will return 12
 var min = new Vector3(3.14f, 7f, 12f).MinComponent(); // will return 3.14
 ```
 
 ## Vector4.
 `With` - replaces the values in the specified vector axes and returns the result as a copy. Has 3 overloads.
-```
+```c#
 Vector4.zero.With(0, 1f);
 Vector4.zero.With(0, 1f, 2, 3.14f);
 Vector4.zero.With(0, 1f, 2, 3.14f, 1, 2.17f);
 ```
 
 `WithX`, `WithXX` and `WithXXX` - substitute values in the selected vector axes and return the result as a copy. Instead of X substitute X, Y, Z or W.
-```
+```c#
 Vector4.zero.WithX(1f);
 Vector4.zero.WithXZ(0f, 2f);
 Vector4.zero.WithXZW(1f, 2f, 3f);
 ```
 
 `Get` - allows you to select 2, 3 or 4 components of a source vector and their order, thereby forming a new two-dimensional, three-dimensional or four-dimensional vector and returning it. It has 3 overloads.
-```
+```c#
 var vector2 = new Vector4(1f, 2f, 3f, 4f).Get(0, 2); // [1f, 3f];
 var vector3 = new Vector4(1f, 2f, 3f, 4f).Get(2, 0, 3); // [3f, 1f, 4f];
 var vector4 = new Vector4(1f, 2f, 3f, 4f).Get(2, 0, 3, 1); // [3f, 1f, 4f, 2f];
 ```
 
 `GetXX`, `GetXXX` and `GetXXXXXX` - allows you to select 2, 3 or 4 components of a source vector and their order by method name, thereby forming a new two- or three-dimensional vector and returning it. It has many overloads.
-```
+```c#
 var vector2 = new Vector4(1f, 2f, 3f, 4f).GetXZ(); // [1f, 3f];
 var vector3 = new Vector4(1f, 2f, 3f, 4f).GetZXW(); // [3f, 1f, 4f];
 var vector4 = new Vector4(1f, 2f, 3f, 4f).GetZXWY(); // [3f, 1f, 4f, 2f];
 ```
 
 `MaxComponent` and `MinComponent` return the maximum and minimum components of the vector, respectively.
-```
+```c#
 var max = new Vector4(3.14f, 7f, 12f, -2f).MaxComponent(); // will return 12
 var min = new Vector4(3.14f, 7f, 12f, -2f).MinComponent(); // will return -2
 ```
