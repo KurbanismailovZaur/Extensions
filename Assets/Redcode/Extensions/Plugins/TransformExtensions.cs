@@ -357,6 +357,13 @@ namespace Redcode.Extensions
         public static List<Transform> GetChilds(this Transform transform) => Enumerable.Range(0, transform.childCount).Select(index => transform.GetChild(index)).ToList();
 
         /// <summary>
+        /// Gets a random child.
+        /// </summary>
+        /// <param name="transform">Target transform.</param>
+        /// <returns>Random child.</returns>
+        public static Transform GetRandomChild(this Transform transform) => transform.GetChild(UnityEngine.Random.Range(0, transform.childCount));
+
+        /// <summary>
         /// Adds childs to transform.
         /// </summary>
         /// <param name="childs">Childs to add.</param>
