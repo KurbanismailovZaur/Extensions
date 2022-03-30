@@ -287,6 +287,11 @@ rectTransform.SetAsNextSibling();
 var childs = transform.GetChilds();
 ```
 
+`GetRandomChild` - возвращает произвольный дочерний объект.
+```c#
+var child = transform.GetRandomChild();
+```
+
 `AddChilds` - добавляет дочерние объекты к текущему в конец списка.
 ```c#
 transform.AddChilds(first, second, third);
