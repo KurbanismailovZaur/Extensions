@@ -295,6 +295,11 @@ rectTransform.SetAsNextSibling();
 var childs = transform.GetChilds();
 ```
 
+`GetRandomChild` - returns random child.
+```c#
+var child = transform.GetRandomChild();
+```
+
 `AddChilds` - adds child objects to the current one to the end of the list.
 ```c#
 transform.AddChilds(first, second, third);
