@@ -350,6 +350,26 @@ namespace Redcode.Extensions
         public static void SetToNextSibling(this Transform transform) => transform.SetSiblingIndex(transform.GetSiblingIndex() + 1);
 
         /// <summary>
+        /// Returns the previous transform next to the current object. If there is no previous one, then the current transform is returned.
+        /// </summary>
+        /// <param name="transform">Target transform.</param>
+        /// <returns>Previous object's transform.</returns>
+        public static Transform GetPreviousSiblingTransform(this Transform transform)
+        {
+            return transform.parent.GetChild(Mathf.Max(transform.GetSiblingIndex() - 1, 0));
+        }
+
+        /// <summary>
+        /// Returns the next transform next to the current object. If there is no next one, then the current transform is returned.
+        /// </summary>
+        /// <param name="transform">Target transform.</param>
+        /// <returns>Next object's transform.</returns>
+        public static Transform GetNextSiblingTransform(this Transform transform)
+        {
+            return transform.parent.GetChild(Mathf.Min(transform.GetSiblingIndex() + 1, transform.parent.childCount - 1));
+        }
+
+        /// <summary>
         /// Gets list of all childs.
         /// </summary>
         /// <param name="transform">Target transform.</param>
@@ -417,5 +437,27 @@ namespace Redcode.Extensions
         /// </summary>
         /// <param name="transform">Target transform.</param>
         public static void DestroyLastChild(this Transform transform) => DestroyChild(transform, transform.childCount - 1);
+
+        /// <summary>
+        /// <inheritdoc cref="GameObjectExtensions.SetComponentsEnabledInChildren{T}(GameObject, bool)"/>
+        /// </summary>
+        /// <typeparam name="T"><inheritdoc cref="GameObjectExtensions.SetComponentsEnabledInChildren{T}(GameObject, bool)"/></typeparam>
+        /// <param name="transform">Target transform.</param>
+        /// <param name="enabled"><inheritdoc cref="GameObjectExtensions.SetComponentsEnabledInChildren{T}(GameObject, bool)" path="/param[@name='enabled']"/></param>
+        public static void SetComponentsEnabledInChildren<T>(this Transform transform, bool enabled) where T : MonoBehaviour
+        {
+            transform.gameObject.SetComponentsEnabledInChildren<T>(enabled);
+        }
+
+        /// <summary>
+        /// <inheritdoc cref="GameObjectExtensions.SetComponentsEnabledInParents{T}(GameObject, bool)"/>
+        /// </summary>
+        /// <typeparam name="T"><inheritdoc cref="GameObjectExtensions.SetComponentsEnabledInParents{T}(GameObject, bool)"/></typeparam>
+        /// <param name="transform">Target transform.</param>
+        /// <param name="enabled"><inheritdoc cref="GameObjectExtensions.SetComponentsEnabledInParents{T}(GameObject, bool)" path="/param[@name='enabled']"/></param>
+        public static void SetComponentsEnabledInParents<T>(this Transform transform, bool enabled) where T : MonoBehaviour
+        {
+            transform.gameObject.SetComponentsEnabledInParents<T>(enabled);
+        }
     }
 }
