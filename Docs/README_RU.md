@@ -318,7 +318,23 @@ transform.DestroyFirstChild();
 transform.DestroyLastChild();
 ```
 
-#№ Camera
+`GetPreviousSiblingTransform` и `GetNextSiblingTransform` - получает компонент `Trabsform` предыдущего и следующего объекта на этом уровне соответственно.
+```c#
+var nextObject = transform.GetNextSiblingTransform().gameObject;
+```
+
+`SetComponentsEnabledInChildren<T>` и `SetComponentsEnabledInParents<T>` - устанавливает активность всех компонентов на этом объекте и его детях или родителях соовтественно.
+```c#
+transform.SetComponentsEnabledInChildren<BoxCollider>(false);
+```
+
+## GameObject
+`SetComponentsEnabledInChildren<T>` и `SetComponentsEnabledInParents<T>` - устанавливает активность всех компонентов на этом объекте и его детях или родителях соовтественно.
+```c#
+gameObject.SetComponentsEnabledInChildren<BoxCollider>(false);
+```
+
+## Camera
 `SetBackgroundColor` и `SetBackgroundColorXXX` - устанавливают цвет заднего фона камеры.
 ```c#
 camera.SetBackgroundColorGB(1f, 0.5f);
