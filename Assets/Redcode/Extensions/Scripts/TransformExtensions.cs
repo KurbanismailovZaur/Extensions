@@ -338,6 +338,13 @@ namespace Redcode.Extensions
         public static void SetLocalScaleYZ(this Transform transform, Vector2 scale) => transform.localScale = transform.localScale.WithYZ(scale);
 
         /// <summary>
+        /// Sets uniform local scale.
+        /// </summary>
+        /// <param name="transform">Target transform.</param>
+        /// <param name="scale">Uniform scale to set.</param>
+        public static void SetLocalScale(this Transform transform, float scale) => transform.localScale = transform.localScale = new Vector3(scale, scale, scale);
+
+        /// <summary>
         /// Sets sibling index to previous.
         /// </summary>
         /// <param name="transform">Target transform.</param>
