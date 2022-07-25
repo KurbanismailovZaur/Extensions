@@ -400,10 +400,15 @@ namespace Redcode.Extensions
         /// <param name="position">Desired world position.</param>
         /// <param name="canvasScaler">Canvas scaler which will be taken into account.</param>
         /// <returns>Screen space position.</returns>
-        public static Vector2 WorldToScreenPoint(this Camera camera, Vector3 position, CanvasScaler canvasScaler)
+        public static Vector3 WorldToScreenPoint(this Camera camera, Vector3 position, CanvasScaler canvasScaler)
         {
             var multiplier = Mathf.Lerp(Screen.width / canvasScaler.referenceResolution.x, Screen.height / canvasScaler.referenceResolution.y, canvasScaler.matchWidthOrHeight);
-            return camera.WorldToScreenPoint(position) / multiplier;
+
+            var screenPosition = camera.WorldToScreenPoint(position);
+            screenPosition.x /= multiplier;
+            screenPosition.y /= multiplier;
+
+            return screenPosition;
         }
     }
 }
