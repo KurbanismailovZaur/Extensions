@@ -223,5 +223,18 @@ namespace Redcode.Extensions
 
             return Vector2.Scale(GetSize(rectTransform.parent as RectTransform), rectTransform.anchorMax - rectTransform.anchorMin) + rectTransform.sizeDelta;
         }
+
+        /// <summary>
+        /// Calculate rect of the rectTransform in screen space.
+        /// </summary>
+        /// <param name="rectTransform">Target rectTransform.</param>
+        public static Rect GetRectInScreenSpace(this RectTransform rectTransform)
+        {
+            float x = rectTransform.position.x + rectTransform.anchoredPosition.x;
+            float y = Screen.height - rectTransform.position.y - rectTransform.anchoredPosition.y;
+            Vector2 size = Vector2.Scale(rectTransform.rect.size, rectTransform.lossyScale);
+
+            return new Rect(x, y, size.x, size.y);
+        }
     }
 }

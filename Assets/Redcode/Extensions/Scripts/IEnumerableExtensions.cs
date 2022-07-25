@@ -15,6 +15,19 @@ namespace Redcode.Extensions
         public static T GetRandomElement<T>(this IEnumerable<T> enumerable) => enumerable.ElementAt(Random.Range(0, enumerable.Count()));
 
         /// <summary>
+        /// Get random elements from the <paramref name="enumerable"/>.
+        /// </summary>
+        /// <typeparam name="T">Source type.</typeparam>
+        /// <param name="enumerable">The enumerable.</param>
+        /// <param name="count">Count of the random elements.</param>
+        /// <returns>Random elements from enumerable.</returns>
+        public static List<T> GetRandomElements<T>(this IEnumerable<T> enumerable, int count)
+        {
+            var poppedIndexes = Enumerable.Range(0, enumerable.Count()).ToList().PopRandoms(count);
+            return enumerable.Where((el, i) => poppedIndexes.Contains(i)).ToList();
+        }
+
+        /// <summary>
         /// Excepts passed elements from <paramref name="enumerable"/>.
         /// </summary>
         /// <typeparam name="T">Source type.</typeparam>

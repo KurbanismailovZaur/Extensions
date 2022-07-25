@@ -53,7 +53,7 @@ namespace Redcode.Extensions
         /// <param name="list">List with elements.</param>
         /// <param name="count">Count of elements to be popped.</param>
         /// <returns></returns>
-        public static List<T> PopRandom<T>(this IList<T> list, int count)
+        public static List<T> PopRandoms<T>(this IList<T> list, int count)
         {
             var popped = new List<T>();
 

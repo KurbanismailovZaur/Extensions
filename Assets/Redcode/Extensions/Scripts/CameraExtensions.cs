@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Redcode.Extensions
 {
@@ -391,5 +392,18 @@ namespace Redcode.Extensions
         /// <param name="camera">Target camera.</param>
         /// <param name="vector">Vector to set.</param>
         public static void SetTransparencySortAxisYZ(this Camera camera, Vector2 vector) => camera.transparencySortAxis = camera.transparencySortAxis.WithYZ(vector.x, vector.y);
+
+        /// <summary>
+        /// Convert passed world <paramref name="position"/> to screen space with respect to <paramref name="canvasScaler"/>
+        /// </summary>
+        /// <param name="camera">Target camera.</param>
+        /// <param name="position">Desired world position.</param>
+        /// <param name="canvasScaler">Canvas scaler which will be taken into account.</param>
+        /// <returns>Screen space position.</returns>
+        public static Vector2 WorldToScreenPoint(this Camera camera, Vector3 position, CanvasScaler canvasScaler)
+        {
+            var multiplier = Mathf.Lerp(Screen.width / canvasScaler.referenceResolution.x, Screen.height / canvasScaler.referenceResolution.y, canvasScaler.matchWidthOrHeight);
+            return camera.WorldToScreenPoint(position) / multiplier;
+        }
     }
 }
