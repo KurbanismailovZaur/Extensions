@@ -1,10 +1,27 @@
 using Redcode.Extensions;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Test : MonoBehaviour
 {
-    private void Start()
+    [SerializeField]
+    private RenderTexture _renderTexture;
+
+    [SerializeField]
+    private Image _image;
+
+    private Sprite _sprite;
+
+    private IEnumerator Start()
     {
-        Vector4.zero.With(0, 1f, 2, 3.14f);
+        yield return new WaitForSeconds(1f);
+        _sprite = _renderTexture.ToSprite();
+        _image.sprite = _sprite;
+        _renderTexture.WriteToSprite(_sprite);
+    }
+
+    private void Update()
+    {
     }
 }
