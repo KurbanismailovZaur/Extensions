@@ -16,7 +16,7 @@ public class Test : MonoBehaviour
     private IEnumerator Start()
     {
         yield return new WaitForSeconds(1f);
-        _sprite = _renderTexture.ToSprite();
+        _sprite = _renderTexture.ToSprite(TextureFormat.RGBA32);
         _image.sprite = _sprite;
         _renderTexture.WriteToSprite(_sprite);
     }

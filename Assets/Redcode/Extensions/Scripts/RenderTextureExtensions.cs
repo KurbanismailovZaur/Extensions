@@ -11,9 +11,9 @@ namespace Redcode.Extensions
         /// </summary>
         /// <param name="renderTexture">The render texture.</param>
         /// <returns>Created texture.</returns>
-        public static Texture2D ToTexture2D(this RenderTexture renderTexture)
+        public static Texture2D ToTexture2D(this RenderTexture renderTexture, TextureFormat format)
         {
-            var texture = new Texture2D(renderTexture.width, renderTexture.height, TextureFormat.RGB24, false);
+            var texture = new Texture2D(renderTexture.width, renderTexture.height, format, false);
             renderTexture.WriteToTexture2D(texture);
 
             return texture;
@@ -40,9 +40,9 @@ namespace Redcode.Extensions
         /// </summary>
         /// <param name="renderTexture">The render texture.</param>
         /// <returns>Created sprite.</returns>
-        public static Sprite ToSprite(this RenderTexture renderTexture)
+        public static Sprite ToSprite(this RenderTexture renderTexture, TextureFormat format)
         {
-            var texture = renderTexture.ToTexture2D();
+            var texture = renderTexture.ToTexture2D(format);
             return Sprite.Create(texture, new Rect(0f, 0f, texture.width, texture.height), new Vector2(0.5f, 0.5f));
         }
 
