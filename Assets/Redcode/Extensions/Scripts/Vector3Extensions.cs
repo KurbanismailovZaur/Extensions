@@ -264,5 +264,12 @@ namespace Redcode.Extensions
         {
             return new Vector3(vector.x.Remap(min1, max1, min2, max2), vector.y.Remap(min1, max1, min2, max2), vector.z.Remap(min1, max1, min2, max2));
         }
+
+        /// <summary>
+        /// Create new vector with absolute components.
+        /// </summary>
+        /// <param name="vector">Target vector.</param>
+        /// <returns>Vector with absolute components.</returns>
+        public static Vector3 Abs(this Vector3 vector) => new Vector3(Mathf.Abs(vector.x), Mathf.Abs(vector.y), Mathf.Abs(vector.z));
     }
 }

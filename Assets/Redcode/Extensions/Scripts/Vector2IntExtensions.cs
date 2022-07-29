@@ -77,5 +77,12 @@ namespace Redcode.Extensions
         /// <param name="vector">Target vector.</param>
         /// <returns>Vector's min component</returns>
         public static int MinComponent(this Vector2Int vector) => Mathf.Min(vector.x, vector.y);
+
+        /// <summary>
+        /// Create new vector with absolute components.
+        /// </summary>
+        /// <param name="vector">Target vector.</param>
+        /// <returns>Vector with absolute components.</returns>
+        public static Vector2Int Abs(this Vector2Int vector) => new Vector2Int(Mathf.Abs(vector.x), Mathf.Abs(vector.y));
     }
 }

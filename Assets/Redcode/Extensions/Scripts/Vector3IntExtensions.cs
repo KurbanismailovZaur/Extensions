@@ -218,5 +218,12 @@ namespace Redcode.Extensions
         /// <param name="vector">Target vector.</param>
         /// <returns>Vector's min component</returns>
         public static int MinComponent(this Vector3Int vector) => Mathf.Min(vector.x, vector.y, vector.z);
+
+        /// <summary>
+        /// Create new vector with absolute components.
+        /// </summary>
+        /// <param name="vector">Target vector.</param>
+        /// <returns>Vector with absolute components.</returns>
+        public static Vector3Int Abs(this Vector3Int vector) => new Vector3Int(Mathf.Abs(vector.x), Mathf.Abs(vector.y), Mathf.Abs(vector.z));
     }
 }
