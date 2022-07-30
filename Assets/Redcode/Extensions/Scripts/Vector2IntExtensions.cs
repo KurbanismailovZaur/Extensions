@@ -79,10 +79,33 @@ namespace Redcode.Extensions
         public static int MinComponent(this Vector2Int vector) => Mathf.Min(vector.x, vector.y);
 
         /// <summary>
-        /// Create new vector with absolute components.
+        /// Creates new vector with absolute components.
         /// </summary>
         /// <param name="vector">Target vector.</param>
         /// <returns>Vector with absolute components.</returns>
         public static Vector2Int Abs(this Vector2Int vector) => new Vector2Int(Mathf.Abs(vector.x), Mathf.Abs(vector.y));
+
+        /// <summary>
+        /// Creates new vector with clamped components.
+        /// </summary>
+        /// <param name="vector">Target vector.</param>
+        /// <param name="min">The minimum floating value to campare agains.</param>
+        /// <param name="max">The maximum floating value to campare agains.</param>
+        /// <returns>Clamped vector.</returns>
+        public static Vector2Int Clamp(this Vector2Int vector, int min, int max)
+        {
+            return new Vector2Int(Mathf.Clamp(vector.x, min, max), Mathf.Clamp(vector.y, min, max));
+        }
+
+        /// <summary>
+        /// Create new vector with divided by value components.
+        /// </summary>
+        /// <param name="vector">Target vector.</param>
+        /// <param name="other">Vector on which divide</param>
+        /// <returns>Divided vector.</returns>
+        public static Vector2Int Divide(this Vector2Int vector, Vector2Int other)
+        {
+            return new Vector2Int(vector.x / other.x, vector.y / other.y);
+        }
     }
 }

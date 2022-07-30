@@ -93,10 +93,40 @@ namespace Redcode.Extensions
         }
 
         /// <summary>
-        /// Create new vector with absolute components.
+        /// Creates new vector with absolute components.
         /// </summary>
         /// <param name="vector">Target vector.</param>
         /// <returns>Vector with absolute components.</returns>
         public static Vector2 Abs(this Vector2 vector) => new Vector2(Mathf.Abs(vector.x), Mathf.Abs(vector.y));
+
+        /// <summary>
+        /// Creates new vector with clamped components.
+        /// </summary>
+        /// <param name="vector">Target vector.</param>
+        /// <param name="min">The minimum floating value to campare agains.</param>
+        /// <param name="max">The maximum floating value to campare agains.</param>
+        /// <returns>Clamped vector.</returns>
+        public static Vector2 Clamp(this Vector2 vector, float min, float max)
+        {
+            return new Vector2(Mathf.Clamp(vector.x, min, max), Mathf.Clamp(vector.y, min, max));
+        }
+
+        /// <summary>
+        /// Creates and returns a vector whose components are limited to 0 and 1.
+        /// </summary>
+        /// <param name="vector">Target vector.</param>
+        /// <returns>Clamped vector.</returns>
+        public static Vector2 Clamp01(this Vector2 vector)
+        {
+            return new Vector2(Mathf.Clamp01(vector.x), Mathf.Clamp01(vector.y));
+        }
+
+        /// <summary>
+        /// Creates and returns a vector whose components are divided by the value.
+        /// </summary>
+        /// <param name="vector">Target vector.</param>
+        /// <param name="other">Vector on which divide</param>
+        /// <returns>Divided vector.</returns>
+        public static Vector2 Divide(this Vector2 vector, Vector2 other) => vector / other;
     }
 }

@@ -220,10 +220,33 @@ namespace Redcode.Extensions
         public static int MinComponent(this Vector3Int vector) => Mathf.Min(vector.x, vector.y, vector.z);
 
         /// <summary>
-        /// Create new vector with absolute components.
+        /// Creates new vector with absolute components.
         /// </summary>
         /// <param name="vector">Target vector.</param>
         /// <returns>Vector with absolute components.</returns>
         public static Vector3Int Abs(this Vector3Int vector) => new Vector3Int(Mathf.Abs(vector.x), Mathf.Abs(vector.y), Mathf.Abs(vector.z));
+
+        /// <summary>
+        /// Creates new vector with clamped components.
+        /// </summary>
+        /// <param name="vector">Target vector.</param>
+        /// <param name="min">The minimum floating value to campare agains.</param>
+        /// <param name="max">The maximum floating value to campare agains.</param>
+        /// <returns>Clamped vector.</returns>
+        public static Vector3Int Clamp(this Vector3Int vector, int min, int max)
+        {
+            return new Vector3Int(Mathf.Clamp(vector.x, min, max), Mathf.Clamp(vector.y, min, max), Mathf.Clamp(vector.z, min, max));
+        }
+
+        /// <summary>
+        /// Creates and returns a vector whose components are divided by the value.
+        /// </summary>
+        /// <param name="vector">Target vector.</param>
+        /// <param name="other">Vector on which divide</param>
+        /// <returns>Divided vector.</returns>
+        public static Vector3Int Divide(this Vector3Int vector, Vector3Int other)
+        {
+            return new Vector3Int(vector.x / other.x, vector.y / other.y, vector.z / other.z);
+        }
     }
 }

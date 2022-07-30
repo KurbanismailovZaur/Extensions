@@ -266,10 +266,43 @@ namespace Redcode.Extensions
         }
 
         /// <summary>
-        /// Create new vector with absolute components.
+        /// Creates new vector with absolute components.
         /// </summary>
         /// <param name="vector">Target vector.</param>
         /// <returns>Vector with absolute components.</returns>
         public static Vector3 Abs(this Vector3 vector) => new Vector3(Mathf.Abs(vector.x), Mathf.Abs(vector.y), Mathf.Abs(vector.z));
+
+        /// <summary>
+        /// Creates new vector with clamped components.
+        /// </summary>
+        /// <param name="vector">Target vector.</param>
+        /// <param name="min">The minimum floating value to campare agains.</param>
+        /// <param name="max">The maximum floating value to campare agains.</param>
+        /// <returns>Clamped vector.</returns>
+        public static Vector3 Clamp(this Vector3 vector, float min, float max)
+        {
+            return new Vector3(Mathf.Clamp(vector.x, min, max), Mathf.Clamp(vector.y, min, max), Mathf.Clamp(vector.z, min, max));
+        }
+
+        /// <summary>
+        /// Creates and returns a vector whose components are limited to 0 and 1.
+        /// </summary>
+        /// <param name="vector">Target vector.</param>
+        /// <returns>Clamped vector.</returns>
+        public static Vector3 Clamp01(this Vector3 vector)
+        {
+            return new Vector3(Mathf.Clamp01(vector.x), Mathf.Clamp01(vector.y), Mathf.Clamp01(vector.z));
+        }
+
+        /// <summary>
+        /// Creates and returns a vector whose components are divided by the value.
+        /// </summary>
+        /// <param name="vector">Target vector.</param>
+        /// <param name="other">Vector on which divide</param>
+        /// <returns>Divided vector.</returns>
+        public static Vector3 Divide(this Vector3 vector, Vector3 other)
+        {
+            return new Vector3(vector.x / other.x, vector.y / other.y, vector.z / other.z);
+        }
     }
 }

@@ -732,10 +732,43 @@ namespace Redcode.Extensions
         }
 
         /// <summary>
-        /// Create new vector with absolute components.
+        /// Creates new vector with absolute components.
         /// </summary>
         /// <param name="vector">Target vector.</param>
         /// <returns>Vector with absolute components.</returns>
         public static Vector4 Abs(this Vector4 vector) => new Vector4(Mathf.Abs(vector.x), Mathf.Abs(vector.y), Mathf.Abs(vector.z), Mathf.Abs(vector.w));
+
+        /// <summary>
+        /// Creates new vector with clamped components.
+        /// </summary>
+        /// <param name="vector">Target vector.</param>
+        /// <param name="min">The minimum floating value to campare agains.</param>
+        /// <param name="max">The maximum floating value to campare agains.</param>
+        /// <returns>Clamped vector.</returns>
+        public static Vector4 Clamp(this Vector4 vector, float min, float max)
+        {
+            return new Vector4(Mathf.Clamp(vector.x, min, max), Mathf.Clamp(vector.y, min, max), Mathf.Clamp(vector.z, min, max), Mathf.Clamp(vector.w, min, max));
+        }
+
+        /// <summary>
+        /// Creates and returns a vector whose components are limited to 0 and 1.
+        /// </summary>
+        /// <param name="vector">Target vector.</param>
+        /// <returns>Clamped vector.</returns>
+        public static Vector4 Clamp01(this Vector4 vector)
+        {
+            return new Vector4(Mathf.Clamp01(vector.x), Mathf.Clamp01(vector.y), Mathf.Clamp01(vector.z), Mathf.Clamp01(vector.w));
+        }
+
+        /// <summary>
+        /// Creates and returns a vector whose components are divided by the value.
+        /// </summary>
+        /// <param name="vector">Target vector.</param>
+        /// <param name="other">Vector on which divide</param>
+        /// <returns>Divided vector.</returns>
+        public static Vector4 Divide(this Vector4 vector, Vector4 other)
+        {
+            return new Vector4(vector.x / other.x, vector.y / other.y, vector.z / other.z, vector.w / other.w);
+        }
     }
 }
