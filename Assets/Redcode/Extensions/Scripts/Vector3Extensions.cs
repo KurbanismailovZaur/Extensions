@@ -167,42 +167,42 @@ namespace Redcode.Extensions
         /// <param name="axis1">First axis.</param>
         /// <param name="axis2">Second axis.</param>
         /// <param name="axis2">Third axis.</param>
-        /// <returns><see cref="Vector2"/> vector.</returns>
+        /// <returns><see cref="Vector3"/> vector.</returns>
         public static Vector3 Get(this Vector3 vector, int axis1, int axis2, int axis3) => new Vector3(vector[axis1], vector[axis2], vector[axis3]);
 
         /// <summary>
-        /// Gets vector with with order XZY.
+        /// Gets vector with order XZY.
         /// </summary>
         /// <param name="vector">Target vector.</param>
-        /// <returns><see cref="Vector2"/> vector.</returns>
+        /// <returns><see cref="Vector3"/> vector.</returns>
         public static Vector3 GetXZY(this Vector3 vector) => Get(vector, 0, 2, 1);
 
         /// <summary>
-        /// Gets vector with with order YXZ.
+        /// Gets vector with order YXZ.
         /// </summary>
         /// <param name="vector">Target vector.</param>
-        /// <returns><see cref="Vector2"/> vector.</returns>
+        /// <returns><see cref="Vector3"/> vector.</returns>
         public static Vector3 GetYXZ(this Vector3 vector) => Get(vector, 1, 0, 2);
 
         /// <summary>
-        /// Gets vector with with order YZX.
+        /// Gets vector with order YZX.
         /// </summary>
         /// <param name="vector">Target vector.</param>
-        /// <returns><see cref="Vector2"/> vector.</returns>
+        /// <returns><see cref="Vector3"/> vector.</returns>
         public static Vector3 GetYZX(this Vector3 vector) => Get(vector, 1, 2, 0);
 
         /// <summary>
-        /// Gets vector with with order ZXY.
+        /// Gets vector with order ZXY.
         /// </summary>
         /// <param name="vector">Target vector.</param>
-        /// <returns><see cref="Vector2"/> vector.</returns>
+        /// <returns><see cref="Vector3"/> vector.</returns>
         public static Vector3 GetZXY(this Vector3 vector) => Get(vector, 2, 0, 1);
 
         /// <summary>
-        /// Gets vector with with order ZYX.
+        /// Gets vector with order ZYX.
         /// </summary>
         /// <param name="vector">Target vector.</param>
-        /// <returns><see cref="Vector2"/> vector.</returns>
+        /// <returns><see cref="Vector3"/> vector.</returns>
         public static Vector3 GetZYX(this Vector3 vector) => Get(vector, 2, 1, 0);
 
         /// <summary>
@@ -210,7 +210,7 @@ namespace Redcode.Extensions
         /// </summary>
         /// <param name="vector">Target vector.</param>
         /// <param name="x">Target vector.</param>
-        /// <returns><see cref="Vector2"/> vector.</returns>
+        /// <returns><see cref="Vector3"/> vector.</returns>
         public static Vector4 InsertX(this Vector3 vector, float x = 0) => new Vector4(x, vector.x, vector.y, vector.z);
 
         /// <summary>
@@ -218,7 +218,7 @@ namespace Redcode.Extensions
         /// </summary>
         /// <param name="vector">Target vector.</param>
         /// <param name="y">Target vector.</param>
-        /// <returns><see cref="Vector2"/> vector.</returns>
+        /// <returns><see cref="Vector4"/> vector.</returns>
         public static Vector4 InsertY(this Vector3 vector, float y = 0) => new Vector4(vector.x, y, vector.y, vector.z);
 
         /// <summary>
@@ -226,7 +226,7 @@ namespace Redcode.Extensions
         /// </summary>
         /// <param name="vector">Target vector.</param>
         /// <param name="z">Target vector.</param>
-        /// <returns><see cref="Vector2"/> vector.</returns>
+        /// <returns><see cref="Vector4"/> vector.</returns>
         public static Vector4 InsertZ(this Vector3 vector, float z = 0) => new Vector4(vector.x, vector.y, z, vector.z);
 
         /// <summary>
@@ -234,7 +234,7 @@ namespace Redcode.Extensions
         /// </summary>
         /// <param name="vector">Target vector.</param>
         /// <param name="w">Target vector.</param>
-        /// <returns><see cref="Vector2"/> vector.</returns>
+        /// <returns><see cref="Vector4"/> vector.</returns>
         public static Vector4 InsertW(this Vector3 vector, float w = 0) => new Vector4(vector.x, vector.y, vector.z, w);
 
         /// <summary>
