@@ -2,10 +2,10 @@
 Extensions - это методы расширения многих типов данных в Unity, что существенно упрощает решение повседневных задач при создании игр.
 
 ## Настройка
-Для работы с расширениями просто подключите пространство имен `Redcode.Extenesions` в своем коде.
+Для работы с расширениями просто подключите пространство имен `Codomaster.Extenesions` в своем коде.
 
 ```c#
-using Redcode.Extensions;
+using Codomaster.Extensions;
 ```
 
 ### Внимание
@@ -581,16 +581,3 @@ list.RemoveRange(3); // Удалит начиная с 3 индекса и до 
 
 ![image](https://user-images.githubusercontent.com/5365111/198891225-9f4ebd8c-61ab-4501-92ad-a5b56cbc0501.png)
 ![image](https://user-images.githubusercontent.com/5365111/198891880-2a99a252-1b5f-445f-b1f4-41295d9b045b.png)
-
-# Атрибуты
-### ReadOnly
-Вы можете добавить атрибут `ReadOnly` к любому полю в скрипте, чтобы сделать это поле нередактируемым.
-```C#
-[SerializeField]
-[ReadOnly]
-private float _pi = 3.14f;
-```
-
-![image](https://user-images.githubusercontent.com/5365111/198891953-f65d12dd-9c68-4ef9-b7ab-04dd2ef89762.png)
-
-Удачи!
