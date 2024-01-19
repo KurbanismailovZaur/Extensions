@@ -2,10 +2,10 @@
 Extensions are methods for capturing many types of data in Unity, which greatly enhances the day-to-day tasks of creating games.
 
 ## Setup
-To work with an extension, simply include the `Redcode.Extenesions` namespace in your own code.
+To work with an extension, simply include the `Codomaster.Extenesions` namespace in your own code.
 
 ```C#
-using Redcode.Extensions;
+using Codomaster.Extensions;
 ```
 
 ### Attention
@@ -583,16 +583,3 @@ You can select game objects in the hierarchy window or prefabs in the project wi
 
 ![image](https://user-images.githubusercontent.com/5365111/198891225-9f4ebd8c-61ab-4501-92ad-a5b56cbc0501.png)
 ![image](https://user-images.githubusercontent.com/5365111/198891880-2a99a252-1b5f-445f-b1f4-41295d9b045b.png)
-
-# Attributes
-### ReadOnly
-You can add the `ReadOnly` attribute to any field in the script to make that field non-editable.
-```C#
-[SerializeField]
-[ReadOnly]
-private float _pi = 3.14f;
-```
-
-![image](https://user-images.githubusercontent.com/5365111/198891953-f65d12dd-9c68-4ef9-b7ab-04dd2ef89762.png)
-
-Good luck!
