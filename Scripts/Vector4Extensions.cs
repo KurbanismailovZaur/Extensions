@@ -949,7 +949,7 @@ namespace Codomaster.Extensions
         /// <returns><see langword="true"/> if vector's components are equals.</returns>
         public static bool IsUniform(this Vector4 vector)
         {
-            return vector.x.Approximately(vector.y) && vector.y.Approximately(vector.z) && vector.z.Approximately(vector.w);
+            return vector.x.Approx(vector.y) && vector.y.Approx(vector.z) && vector.z.Approx(vector.w);
         }
     }
 }

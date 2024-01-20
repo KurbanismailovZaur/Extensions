@@ -178,7 +178,7 @@ namespace Codomaster.Extensions
         /// </summary>
         /// <param name="vector">Target vector.</param>
         /// <returns><see langword="true"/> if vector's components are equals.</returns>
-        public static bool IsUniform(this Vector2 vector) => vector.x.Approximately(vector.y);
+        public static bool IsUniform(this Vector2 vector) => vector.x.Approx(vector.y);
 
         /// <summary>
         /// Calculate evently distributed point position on circle.

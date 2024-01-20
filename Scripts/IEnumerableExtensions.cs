@@ -120,7 +120,7 @@ namespace Codomaster.Extensions
 
                 sum += probability;
 
-                if (randomValue < sum || randomValue.Approximately(sum))
+                if (randomValue < sum || randomValue.Approx(sum))
                     return (enumerable.ElementAt(index), index);
             }
 
@@ -166,7 +166,7 @@ namespace Codomaster.Extensions
 
                 sum += probability;
 
-                if (randomValue < sum || randomValue.Approximately(sum))
+                if (randomValue < sum || randomValue.Approx(sum))
                     return (enumerator.Current, index);
             }
 

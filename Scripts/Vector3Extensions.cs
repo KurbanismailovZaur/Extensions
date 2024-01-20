@@ -414,7 +414,7 @@ namespace Codomaster.Extensions
         /// </summary>
         /// <param name="vector">Target vector.</param>
         /// <returns><see langword="true"/> if vector's components are equals.</returns>
-        public static bool IsUniform(this Vector3 vector) => vector.x.Approximately(vector.y) && vector.y.Approximately(vector.z);
+        public static bool IsUniform(this Vector3 vector) => vector.x.Approx(vector.y) && vector.y.Approx(vector.z);
 
         /// <summary>
         /// Calculate evently distributed point position on sphere.
