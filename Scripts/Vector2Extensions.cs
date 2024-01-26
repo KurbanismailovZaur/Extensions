@@ -264,5 +264,13 @@ namespace Codomaster.Extensions
         /// <param name="angle">Angle on which vector will be deflected.</param>
         /// <returns>Deflected directional vector.</returns>
         public static Vector2 RandomDeflected(this Vector2 direction, float angle) => Quaternion.AngleAxis(Random.value * angle.WithRandomSign(), Vector3.forward) * direction;
+
+        /// <summary>
+        /// Rotates vector around z axis.
+        /// </summary>
+        /// <param name="vector">Target vector.</param>
+        /// <param name="angle">Angle to rotate.</param>
+        /// <returns>Rotated vector.</returns>
+        public static Vector2 Rotate(this Vector2 vector, float angle) => Quaternion.Euler(0f, 0f, angle) * vector;
     }
 }

@@ -535,5 +535,12 @@ namespace Codomaster.Extensions
         /// </summary>
         /// <param name="transform">Target transform.</param>
         public static void DestroyLastChild(this Transform transform) => DestroyChild(transform, transform.childCount - 1);
+
+        /// <summary>
+        /// Cast transform to RectTransform type.
+        /// </summary>
+        /// <param name="transform">Target transform.</param>
+        /// <returns>Casted RectTransform object.</returns>
+        public static RectTransform AsRect(this Transform transform) => transform as RectTransform;
     }
 }

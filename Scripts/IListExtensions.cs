@@ -82,9 +82,9 @@ namespace Codomaster.Extensions
         /// <param name="list">List with elements.</param>
         /// <param name="probabilities">Probabilities, must match in count with enumerable.</param>
         /// <returns>Popped element.</returns>
-        public static (T element, int index) PopRandomElementWithProbability<T>(this IList<T> list, params float[] probabilities)
+        public static (T element, int index) PopRandomWithProbability<T>(this IList<T> list, params float[] probabilities)
         {
-            return PopRandomElementWithProbability(list, (IEnumerable<float>)probabilities);
+            return PopRandomWithProbability(list, (IEnumerable<float>)probabilities);
         }
 
         /// <summary>
@@ -94,9 +94,9 @@ namespace Codomaster.Extensions
         /// <param name="list">List with elements.</param>
         /// <param name="probabilities">Probabilities, must match in count with enumerable.</param>
         /// <returns>Popped elements.</returns>
-        public static (T element, int index) PopRandomElementWithProbability<T>(this IList<T> list, IEnumerable<float> probabilities)
+        public static (T element, int index) PopRandomWithProbability<T>(this IList<T> list, IEnumerable<float> probabilities)
         {
-            var random = list.GetRandomElementWithProbability(probabilities);
+            var random = list.GetRandomWithProbability(probabilities);
             Pop(list, random.index);
 
             return random;
@@ -109,9 +109,9 @@ namespace Codomaster.Extensions
         /// <param name="list">List with elements.</param>
         /// <param name="probabilitiesSelector">Probabilities selector.</param>
         /// <returns>Popped elements.</returns>
-        public static (T element, int index) PopRandomElementWithProbability<T>(this IList<T> list, Func<T, float> probabilitiesSelector)
+        public static (T element, int index) PopRandomWithProbability<T>(this IList<T> list, Func<T, float> probabilitiesSelector)
         {
-            var random = list.GetRandomElementWithProbability(probabilitiesSelector);
+            var random = list.GetRandomWithProbability(probabilitiesSelector);
             Pop(list, random.index);
 
             return random;
@@ -127,6 +127,39 @@ namespace Codomaster.Extensions
         {
             for (int i = list.Count - 1; i >= index; i--)
                 list.RemoveAt(i);
+        }
+        
+        /// <summary>
+        /// Shuffles <paramref name="list"/>.
+        /// </summary>
+        /// <typeparam name="T">Source type.</typeparam>
+        /// <param name="list">The original list.</param>
+        /// <returns>Shuffled original.</returns>
+        public static IList<T> Shuffle<T>(this IList<T> list)
+        {
+            var n = list.Count;
+            
+            while (n > 1)
+            {
+                var index = UnityEngine.Random.Range(0, --n + 1);  
+                (list[index], list[n]) = (list[n], list[index]);
+            }
+
+            return list;
+        }
+
+        /// <summary>
+        /// Swaps two elements.
+        /// </summary>
+        /// <typeparam name="T">Source type.</typeparam>
+        /// <param name="list">The original list.</param>
+        /// <param name="index1">First index to swap.</param>
+        /// <param name="index2">Second index to swap.</param>
+        /// <returns>Original list.</returns>
+        public static IList<T> Swap<T>(this IList<T> list, int index1, int index2)
+        {
+            (list[index1], list[index2]) = (list[index2], list[index1]);
+            return list;
         }
     }
 }

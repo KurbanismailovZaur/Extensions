@@ -14,7 +14,7 @@ namespace Codomaster.Extensions
         /// <typeparam name="T">Source type.</typeparam>
         /// <param name="enumerable">The enumerable.</param>
         /// <returns>Random element from enumerable.</returns>
-        public static T GetRandomElement<T>(this IEnumerable<T> enumerable) => enumerable.ElementAt(UnityRandom.Range(0, enumerable.Count()));
+        public static T GetRandom<T>(this IEnumerable<T> enumerable) => enumerable.ElementAt(UnityRandom.Range(0, enumerable.Count()));
 
         /// <summary>
         /// Get random elements from the <paramref name="enumerable"/>.
@@ -24,7 +24,7 @@ namespace Codomaster.Extensions
         /// <param name="count">Count of the random elements.</param>
         /// <param name="clampCount">Does we need clamp <paramref name="count"/> if it greater than <paramref name="enumerable"/> elements count.</param>
         /// <returns>Random elements from enumerable.</returns>
-        public static List<T> GetRandomElements<T>(this IEnumerable<T> enumerable, int count, bool clampCount = false)
+        public static List<T> GetRandoms<T>(this IEnumerable<T> enumerable, int count, bool clampCount = false)
         {
             if (clampCount)
                 count = Mathf.Min(count, enumerable.Count());
@@ -39,16 +39,16 @@ namespace Codomaster.Extensions
         /// <typeparam name="T">Source type.</typeparam>
         /// <param name="enumerable">The enumerable.</param>
         /// <param name="elements">Elements to exclude.</param>
-        /// <returns>Enumerable without passed elements.</returns>
-        public static IEnumerable<T> Except<T>(this IEnumerable<T> enumerable, params T[] elements) => enumerable.Except((IEnumerable<T>)elements);
+        /// <returns>List without passed elements.</returns>
+        public static List<T> Except<T>(this IEnumerable<T> enumerable, params T[] elements) => enumerable.Except((IEnumerable<T>)elements).ToList();
 
         /// <summary>
         /// Shuffles <paramref name="enumerable"/>.
         /// </summary>
         /// <typeparam name="T">Source type.</typeparam>
         /// <param name="enumerable">The enumerable.</param>
-        /// <returns>Shuffled <paramref name="enumerable"/>.</returns>
-        public static IEnumerable<T> Shuffled<T>(this IEnumerable<T> enumerable) => enumerable.OrderBy(v => UnityRandom.value);
+        /// <returns>Shuffled copy.</returns>
+        public static List<T> Shuffled<T>(this IEnumerable<T> enumerable) => enumerable.OrderBy(v => UnityRandom.value).ToList();
 
         /// <summary>
         /// Represents an enumerable as a string in the format <see langword="[a, b, c, ...]"/> 
@@ -66,7 +66,7 @@ namespace Codomaster.Extensions
         /// <param name="probabilities">Probabilities, must match in count with enumerable.</param>
         /// <returns>Tuple with random element and it's index.</returns>
         /// <exception cref="ArgumentException">Throwed when <paramref name="enumerable"/> and <paramref name="probabilities"/> counts are not match.</exception>
-        public static (T element, int index) GetRandomElementWithProbability<T>(this IEnumerable<T> enumerable, params float[] probabilities) => GetRandomElementWithProbability(enumerable, (IEnumerable<float>)probabilities);
+        public static (T element, int index) GetRandomWithProbability<T>(this IEnumerable<T> enumerable, params float[] probabilities) => GetRandomWithProbability(enumerable, (IEnumerable<float>)probabilities);
 
         /// <summary>
         /// Get random element index with probability selector.
@@ -77,18 +77,18 @@ namespace Codomaster.Extensions
         /// <param name="probabilitiesSum">Sum of probabilities.</param>
         /// <returns>Tuple with random element and it's index.</returns>
         /// <exception cref="ArgumentException">Throwed when <paramref name="enumerable"/> and <paramref name="probabilities"/> counts are not match.</exception>
-        public static (T element, int index) GetRandomElementWithProbability<T>(this IEnumerable<T> enumerable, double? probabilitiesSum, params float[] probabilities) => GetRandomElementWithProbability(enumerable, (IEnumerable<float>)probabilities, (float)probabilitiesSum);
+        public static (T element, int index) GetRandomWithProbability<T>(this IEnumerable<T> enumerable, double? probabilitiesSum, params float[] probabilities) => GetRandomWithProbability(enumerable, (IEnumerable<float>)probabilities, (float)probabilitiesSum);
 
         /// <summary>
-        /// <inheritdoc cref="GetRandomElementWithProbability{T}(IEnumerable{T}, float[])"/>
+        /// <inheritdoc cref="GetRandomWithProbability{T}"/>
         /// </summary>
-        /// <typeparam name="T"><inheritdoc cref="GetRandomElementWithProbability{T}(IEnumerable{T}, float[])"/></typeparam>
-        /// <param name="enumerable"><inheritdoc cref="GetRandomElementWithProbability{T}(IEnumerable{T}, float[])" path="/param[@name='enumerable']"/></param>
-        /// <param name="probabilities"><inheritdoc cref="GetRandomElementWithProbability{T}(IEnumerable{T}, float[])" path="/param[@name='probabilities']"/></param>
+        /// <typeparam name="T"><inheritdoc cref="GetRandomWithProbability{T}"/></typeparam>
+        /// <param name="enumerable"><inheritdoc cref="GetRandomWithProbability{T}" path="/param[@name='enumerable']"/></param>
+        /// <param name="probabilities"><inheritdoc cref="GetRandomWithProbability{T}" path="/param[@name='probabilities']"/></param>
         /// <param name="probabilitiesSum">Sum of probabilities.</param>
         /// <returns>Tuple with random element and it's index.</returns>
         /// <exception cref="ArgumentException">Throwed when <paramref name="enumerable"/> and <paramref name="probabilities"/> counts are not match.</exception>
-        public static (T element, int index) GetRandomElementWithProbability<T>(this IEnumerable<T> enumerable, IEnumerable<float> probabilities, float? probabilitiesSum = null)
+        public static (T element, int index) GetRandomWithProbability<T>(this IEnumerable<T> enumerable, IEnumerable<float> probabilities, float? probabilitiesSum = null)
         {
             var count = enumerable.Count();
 
@@ -129,15 +129,15 @@ namespace Codomaster.Extensions
         }
 
         /// <summary>
-        /// <inheritdoc cref="GetRandomElementWithProbability{T}(IEnumerable{T}, float[])"/>
+        /// <inheritdoc cref="GetRandomWithProbability{T}"/>
         /// </summary>
-        /// <typeparam name="T"><inheritdoc cref="GetRandomElementWithProbability{T}(IEnumerable{T}, float[])"/></typeparam>
-        /// <param name="enumerable"><inheritdoc cref="GetRandomElementWithProbability{T}(IEnumerable{T}, float[])" path="/param[@name='enumerable']"/></param>
+        /// <typeparam name="T"><inheritdoc cref="GetRandomWithProbability{T}"/></typeparam>
+        /// <param name="enumerable"><inheritdoc cref="GetRandomWithProbability{T}" path="/param[@name='enumerable']"/></param>
         /// <param name="probabilitySelector">Probabilities selector.</param>
         /// <param name="probabilitiesSum">Sum of probabilities.</param>
         /// <returns>Tuple with random element and it's index.</returns>
         /// <exception cref="ArgumentException">Throwed when <paramref name="enumerable"/> count are zero.</exception>
-        public static (T element, int index) GetRandomElementWithProbability<T>(this IEnumerable<T> enumerable, Func<T, float> probabilitySelector, float? probabilitiesSum = null)
+        public static (T element, int index) GetRandomWithProbability<T>(this IEnumerable<T> enumerable, Func<T, float> probabilitySelector, float? probabilitiesSum = null)
         {
             var count = enumerable.Count();
 
