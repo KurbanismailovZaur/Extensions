@@ -136,7 +136,7 @@ namespace Codomaster.Extensions
         /// <param name="probabilitySelector">Probabilities selector.</param>
         /// <param name="probabilitiesSum">Sum of probabilities.</param>
         /// <returns>Tuple with random element and it's index.</returns>
-        /// <exception cref="ArgumentException">Throwed when <paramref name="enumerable"/> and <paramref name="probabilities"/> counts are not match.</exception>
+        /// <exception cref="ArgumentException">Throwed when <paramref name="enumerable"/> count are zero.</exception>
         public static (T element, int index) GetRandomElementWithProbability<T>(this IEnumerable<T> enumerable, Func<T, float> probabilitySelector, float? probabilitiesSum = null)
         {
             var count = enumerable.Count();

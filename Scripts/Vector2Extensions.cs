@@ -93,34 +93,20 @@ namespace Codomaster.Extensions
         /// <param name="z">Value to set.</param>
         /// <returns>3-dimensional vector.</returns>
         public static Vector3 InsertZ(this Vector2 vector, float z = 0) => new(vector.x, vector.y, z);
-
-        /// <summary>
-        /// Gets max component index from vector.
-        /// </summary>
-        /// <param name="vector">Target vector.</param>
-        /// <returns>Vector's max component index.</returns>
-        public static int MaxComponentIndex(this Vector2 vector) => vector.x >= vector.y ? 0 : 1;
-
+        
         /// <summary>
         /// Gets max component from vector.
         /// </summary>
         /// <param name="vector">Target vector.</param>
-        /// <returns>Vector's max component</returns>
-        public static float MaxComponent(this Vector2 vector) => vector[MaxComponentIndex(vector)];
-
-        /// <summary>
-        /// Gets min component index from vector.
-        /// </summary>
-        /// <param name="vector">Target vector.</param>
-        /// <returns>Vector's min component index.</returns>
-        public static int MinComponentIndex(this Vector2 vector) => vector.x <= vector.y ? 0 : 1;
+        /// <returns>Vector's max component tuple info.</returns>
+        public static (int index, float value) MaxComponent(this Vector2 vector) => vector.x >= vector.y ? (0, vector.x) : (1, vector.y);
 
         /// <summary>
         /// Gets min component from vector.
         /// </summary>
         /// <param name="vector">Target vector.</param>
-        /// <returns>Vector's min component</returns>
-        public static float MinComponent(this Vector2 vector) => vector[MinComponentIndex(vector)];
+        /// <returns>Vector's min component tuple info.</returns>
+        public static (int index, float value) MinComponent(this Vector2 vector) => vector.x <= vector.y ? (0, vector.x) : (1, vector.y);
 
         /// <summary>
         /// Remaps all vector's components from one interval to other.

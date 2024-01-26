@@ -187,7 +187,6 @@ namespace Codomaster.Extensions
         /// </summary>
         /// <param name="rectTransform">Target rectTransform.</param>
         /// <param name="x">Value to set.</param>
-
         public static void SetPivotX(this RectTransform rectTransform, float x) => rectTransform.pivot = rectTransform.pivot.WithX(x);
 
         /// <summary>

@@ -499,7 +499,6 @@ namespace Codomaster.Extensions
         /// <param name="transform">Target transform.</param>
         public static void DestroyChilds(this Transform transform, int index) => GetChilds(transform).Skip(index).ForEach(child => UnityObject.Destroy(child.gameObject));
 
-
         /// <summary>
         /// Destroy <paramref name="count"/> childs start from <paramref name="index"/>.
         /// </summary>

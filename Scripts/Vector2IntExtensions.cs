@@ -99,22 +99,14 @@ namespace Codomaster.Extensions
         /// </summary>
         /// <param name="vector">Target vector.</param>
         /// <returns>Vector's max component tuple info.</returns>
-        public static (int index, int value) MaxComponent(this Vector2Int vector)
-        {
-            var index = vector.x >= vector.y ? 0 : 1;
-            return (index, vector[index]);
-        }
+        public static (int index, int value) MaxComponent(this Vector2Int vector) => vector.x >= vector.y ? (0, vector.x) : (1, vector.y);
 
         /// <summary>
         /// Gets min component info from vector.
         /// </summary>
         /// <param name="vector">Target vector.</param>
         /// <returns>Vector's min component tuple info.</returns>
-        public static (int index, int value) MinComponent(this Vector2Int vector)
-        {
-            var index = vector.x <= vector.y ? 0 : 1;
-            return (index, vector[index]);
-        }
+        public static (int index, int value) MinComponent(this Vector2Int vector) => vector.x <= vector.y ? (0, vector.x) : (1, vector.y);
 
         /// <summary>
         /// Creates new vector with absolute components.

@@ -328,32 +328,26 @@ namespace Codomaster.Extensions
         }
 
         /// <summary>
-        /// Gets max component index from vector.
+        /// Gets max component from vector.
         /// </summary>
         /// <param name="vector">Target vector.</param>
-        /// <returns>Vector's max component index.</returns>
-        public static int MaxComponentIndex(this Vector3 vector) => CompareAllComponents(vector, 1);
+        /// <returns>Vector's max component tuple info.</returns>
+        public static (int index, float value) MaxComponent(this Vector3 vector)
+        {
+            var index = CompareAllComponents(vector, 1);
+            return (index, vector[index]);
+        }
 
         /// <summary>
         /// Gets min component from vector.
         /// </summary>
         /// <param name="vector">Target vector.</param>
-        /// <returns>Vector's min component</returns>
-        public static float MaxComponent(this Vector3 vector) => vector[MaxComponentIndex(vector)];
-
-        /// <summary>
-        /// Gets min component index from vector.
-        /// </summary>
-        /// <param name="vector">Target vector.</param>
-        /// <returns>Vector's min component index.</returns>
-        public static int MinComponentIndex(this Vector3 vector) => CompareAllComponents(vector, -1);
-
-        /// <summary>
-        /// Gets min component from vector.
-        /// </summary>
-        /// <param name="vector">Target vector.</param>
-        /// <returns>Vector's min component</returns>
-        public static float MinComponent(this Vector3 vector) => vector[MinComponentIndex(vector)];
+        /// <returns>Vector's min component tuple info.</returns>
+        public static (int index, float value) MinComponent(this Vector3 vector) 
+        {
+            var index = CompareAllComponents(vector, -1);
+            return (index, vector[index]);
+        }
 
         /// <summary>
         /// Remaps all vector's components from one interval to other.
